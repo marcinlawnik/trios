@@ -12,7 +12,12 @@ albo bezpośrednio w PhpStorm
 `composer install`
 4. Skopiuj plik `.env.example` do pliku `.env`
 5. Stwórz bazę danych `CREATE DATABASE trios;`
-6. Wypełnij plik danymi dostępowymi do bazy MySQL
+6. Wypełnij plik `.env` danymi dostępowymi do bazy MySQL
+```
+DB_DATABASE=trios
+DB_USERNAME=<nazwa użytkownika bazy danych>
+DB_PASSWORD=<hasło do bazy danych>
+```
 7. Stwórz tabele w bazie danych i dodaj do niej testowe dane
 `php artisan migrate:refresh --seed`
 8. Uruchom aplikację
