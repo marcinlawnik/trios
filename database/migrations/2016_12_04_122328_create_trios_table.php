@@ -18,9 +18,9 @@ class CreateTriosTable extends Migration
             $table->string('sentence1');
             $table->string('sentence2');
             $table->string('sentence3');
-            $table->string('explanation1');
-            $table->string('explanation2');
-            $table->string('explanation3');
+            $table->text('explanation1');
+            $table->text('explanation2');
+            $table->text('explanation3');
             $table->string('answer');
             $table->timestamps();
         });
