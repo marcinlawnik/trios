@@ -9,10 +9,13 @@ Aplikacja internetowa
 2. Zainstaluj potrzebne biblioteki
 `composer install`
 3. Skopiuj plik `.env.example` do pliku `.env`
-4. Wypełnij plik danymi dostępowymi do bazy MySQL
-5. Uruchom aplikację
+4. Stwórz bazę danych `CREATE DATABASE trios;`
+5. Wypełnij plik danymi dostępowymi do bazy MySQL
+6. Stwórz tabele w bazie danych
+`php artisan migrate`
+7. Uruchom aplikację
 `php artisan serve`
-6. Wejdź pod adres `localhost:8000` i korzystaj z aplikacji.
+8. Wejdź pod adres `localhost:8000` i korzystaj z aplikacji.
 
 ### Wymagania
 

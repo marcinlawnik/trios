@@ -16,3 +16,7 @@ use Carbon\Carbon;
 Route::get('/', function () {
     return view('welcome')->with('time', Carbon::now());
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
