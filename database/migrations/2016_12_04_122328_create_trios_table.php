@@ -15,7 +15,6 @@ class CreateTriosTable extends Migration
     {
         Schema::create('trios', function (Blueprint $table) {
             $table->increments('id');
-            $table->primary('id');
             $table->string('sentence1');
             $table->string('sentence2');
             $table->string('sentence3');
