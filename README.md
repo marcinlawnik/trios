@@ -5,17 +5,19 @@ Aplikacja internetowa
 ## Getting Started
 
 1. Sklonuj repozytorium
-`git clone `
-2. Zainstaluj potrzebne biblioteki
+`git clone https://github.com/AKAI-TRIOS/trios.git`
+albo bezpośrednio w PhpStorm
+2. Zainstaluj bazę danych MySQL
+3. Zainstaluj potrzebne biblioteki
 `composer install`
-3. Skopiuj plik `.env.example` do pliku `.env`
-4. Stwórz bazę danych `CREATE DATABASE trios;`
-5. Wypełnij plik danymi dostępowymi do bazy MySQL
-6. Stwórz tabele w bazie danych
-`php artisan migrate`
-7. Uruchom aplikację
+4. Skopiuj plik `.env.example` do pliku `.env`
+5. Stwórz bazę danych `CREATE DATABASE trios;`
+6. Wypełnij plik danymi dostępowymi do bazy MySQL
+7. Stwórz tabele w bazie danych i dodaj do niej testowe dane
+`php artisan migrate:refresh --seed`
+8. Uruchom aplikację
 `php artisan serve`
-8. Wejdź pod adres `localhost:8000` i korzystaj z aplikacji.
+9. Wejdź pod adres `localhost:8000` i korzystaj z aplikacji.
 
 ### Wymagania
 
