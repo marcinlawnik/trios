@@ -12,9 +12,12 @@
 */
 
 use Carbon\Carbon;
+use App\Trio;
 
 Route::get('/', function () {
-    return view('welcome')->with('time', Carbon::now());
+    $trio = Trio::inRandomOrder()->first();
+    $trioText = $trio->sentence1;
+    return view('welcome')->with('time', Carbon::now())->with('trio', $trioText);
 });
 
 Route::get('/dev/playground', function() {

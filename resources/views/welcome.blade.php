@@ -49,6 +49,10 @@
                 font-size: 84px;
             }
 
+            .small-title {
+                font-size: 30px;
+            }
+
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -84,8 +88,8 @@
                     Laravel
                 </div>
 
-                <div class="title m-b-md">
-                    {{ $time }}
+                <div class="small-title m-b-md">
+                    {{ $trio }}
                 </div>
 
                 <div class="links">
