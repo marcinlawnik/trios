@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome')->with('time', Carbon::now());
 });
 
+Route::get('/dev/playground', function() {
+    $data = ['test' => 'test'];
+
+    return view('dev.playground')->with('data', $data);
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
