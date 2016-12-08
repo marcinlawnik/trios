@@ -82,7 +82,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 * **Marcin Ławniczak** - *rozpoczęcie projektu* - [marcinlawnik](https://github.com/marcinlawnik)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/AKAI-TRIOS/trios/graphs/contributors) who participated in this project.
 
 ## License
 
