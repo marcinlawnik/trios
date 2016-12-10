@@ -11,8 +11,11 @@
 |
 */
 
+
 use Carbon\Carbon;
 use App\Trio;
+
+
 
 Route::get('/', function () {
     $trio = Trio::inRandomOrder()->first();
@@ -24,6 +27,14 @@ Route::get('/dev/playground', function() {
     $data = ['test' => 'test'];
 
     return view('dev.playground')->with('data', $data);
+});
+
+Route::get('/admin/trios/stats', function () {
+    $Trios = App\Trio::all();
+
+    foreach ($Trios as $Trio) {
+        echo "<p> Trios number " . $Trio->id . "</p>";
+    }
 });
 
 Auth::routes();
