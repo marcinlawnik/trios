@@ -30,7 +30,7 @@ Route::get('/dev/playground', function() {
 });
 
 Route::get('/admin/trios/stats', function () {
-    $Trios = App\Trio::all();
+    $Trios = Trio::all();
 
     foreach ($Trios as $Trio) {
         echo "<p> Trios number " . $Trio->id . "</p>";
