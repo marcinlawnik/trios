@@ -46,7 +46,7 @@ Route::get('/admin/trios/{trio}/edit', function(Trio $trio) {
     $fillable = $trio->getFillable();
     $attributes = $trio->getAttributes();
 
-    echo "<form aciton=\'/admin/trios/{$trio->id}/edit\' method='post'>
+    echo "<form action='/admin/trios/{$trio->id}/edit' method='post'>
                 {$csrf}";
 
     foreach ($fillable as $key) {
