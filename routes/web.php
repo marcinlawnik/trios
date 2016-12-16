@@ -32,21 +32,9 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/admin/trios/', function () {
 
-    $Trios = App\Trio::all();
+    $trios = Trio::all();
+   return view('admin.trios')->withTrios($trios);
 
-    foreach ($Trios as $Trio) {
-        echo "<p>".$Trio->sentence1."(".$Trio->explanation1.")"."</p>";
-        echo "<p>".$Trio->sentence2."(".$Trio->explanation2.")"."</p>";
-        echo "<p>".$Trio->sentence3."(".$Trio->explanation3.")"."</p>";
-        echo "<p>".$Trio->answer."</p>";
-        echo "<hr>";
-    }
-
-
-
-//    $trio = Trio::inRandomOrder()->first();
-//    $trioText = $trio->sentence1;
-//    return view('welcome')->with('time', Carbon::now())->with('trio', $trioText);
 });
 
 Route::get('/admin/trios/stats', function () {
