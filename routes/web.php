@@ -32,11 +32,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/admin/trios/{trio}', function(Trio $trio) {
-    return view('admin.view')->with('trio', $trio);
+    return view('admin.trios.view')->with('trio', $trio);
 })->where('trio', '[0-9]+');
 
 Route::get('/admin/trios/{trio}/edit', function(Trio $trio) {
-    return view('admin.edit')->with('trio', $trio);
+    return view('admin.trios.edit')->with('trio', $trio);
 })->where('trio', '[0-9]+');
 
 Route::post('/admin/trios/{trio}/edit', function(Request $request, Trio $trio) {
@@ -53,7 +53,7 @@ Route::post('/admin/trios/{trio}/edit', function(Request $request, Trio $trio) {
 });
 
 Route::get('/admin/trios/add', function() {
-    return view('admin.add');
+    return view('admin.trios.add');
 });
 
 Route::post('/admin/trios/add', function(Request $request) {
