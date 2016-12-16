@@ -9,5 +9,5 @@
     <li>answer: {{ $trio->answer }}</li>
     <li>created at: {{ $trio->created_at }}</li>
     <li>updated at: {{ $trio->updated_at }}</li>
-    <li><a href='/admin/trios/{$trio->id}/edit'>Edit trio</a></li>
+    <li><a href='/admin/trios/{{ $trio->id }}/edit'>Edit trio</a></li>
 </ul>
