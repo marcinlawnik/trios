@@ -30,32 +30,14 @@ Route::get('/dev/playground', function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('/admin/trios/{trio}', function(Trio $trio) {
-    $attributes = $trio->getAttributes();
-    foreach ($attributes as $key => $value) {
-        echo "{$key}: {$value}<br>";
-    }
-    echo "<a href='/admin/trios/{$trio->id}/edit'>Edit trio</a>";
-    return '';
-});
 
+Route::get('/admin/trios/{trio}', function(Trio $trio) {
+    return view('admin.view')->with('trio', $trio);
+})->where('trio', '[0-9]+');
 
 Route::get('/admin/trios/{trio}/edit', function(Trio $trio) {
-    $csrf = csrf_field();
-
-    $fillable = $trio->getFillable();
-    $attributes = $trio->getAttributes();
-
-    echo "<form action='/admin/trios/{$trio->id}/edit' method='post'>
-                {$csrf}";
-
-    foreach ($fillable as $key) {
-        echo "<input name='{$key}' type='text' value='{$attributes[$key]}'><br>";
-    }
-    echo  "<input type='submit'>
-            </form>";
-    return '';
-});
+    return view('admin.edit')->with('trio', $trio);
+})->where('trio', '[0-9]+');
 
 Route::post('/admin/trios/{trio}/edit', function(Request $request, Trio $trio) {
     $trio->sentence1 = $request->input('sentence1', $trio->sentence1);
