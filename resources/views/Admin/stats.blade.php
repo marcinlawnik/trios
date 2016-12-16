@@ -1,4 +1,4 @@
-<p>Ilość trios: {{ $trioscount }}</p>
+<p>Ilość trios: {{ $triosCount }}</p>
 <p>Czas generacji: {{ $time }}</p>
 
 @foreach($exampleTrios as $trio)
