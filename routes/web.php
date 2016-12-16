@@ -43,7 +43,26 @@ Route::get('/admin/trios/', function () {
     }
 
 
+
 //    $trio = Trio::inRandomOrder()->first();
 //    $trioText = $trio->sentence1;
 //    return view('welcome')->with('time', Carbon::now())->with('trio', $trioText);
+});
+
+Route::get('/admin/trios/stats', function () {
+
+    $start_time = microtime(true);
+    $triosCount = Trio::all()->count();
+    $end_time = microtime(true);
+    $Time = $end_time - $start_time;
+    $exampleTrios = Trio::orderBy('id', 'desc')->take(10)->get();
+
+    return view('admin.stats')->withTime($Time)->withtrioscount($triosCount)
+        ->with('exampleTrios', $exampleTrios);
+
+//    $start_time = microtime(true);
+//    $Trios_count = App\Trio::all()->count();
+//    echo $Trios_count.'<br>';
+//    $end_time = microtime(true);
+//    echo $end_time-$start_time;
 });
