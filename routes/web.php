@@ -51,3 +51,28 @@ Route::post('/admin/trios/{trio}/edit', function(Request $request, Trio $trio) {
     $trio->save();
     return redirect("/admin/trios/{$trio->id}");
 });
+
+Route::get('/admin/trios/add', function() {
+    return view('admin.add');
+});
+
+Route::post('/admin/trios/add', function(Request $request) {
+    if($request->has(['sentence1', 'sentence2', 'sentence3', 'explanation1',
+        'explanation2', 'explanation3', 'answer'])) {
+        $trio = new Trio();
+
+        $trio->sentence1 = $request->input('sentence1');
+        $trio->sentence2 = $request->input('sentence2');
+        $trio->sentence3 = $request->input('sentence3');
+        $trio->explanation1 = $request->input('explanation1');
+        $trio->explanation2 = $request->input('explanation2');
+        $trio->explanation3 = $request->input('explanation3');
+        $trio->answer = $request->input('answer');
+
+        $trio->save();
+
+        return redirect("/admin/trios/{$trio->id}");
+    } else {
+        return "Nie wypełniłeś wszystkich pól";
+    }
+});
