@@ -73,6 +73,6 @@ Route::post('/admin/trios/add', function(Request $request) {
 
         return redirect("/admin/trios/{$trio->id}");
     } else {
-        return "Nie wypełniłeś wszystkich pól";
+        return view('admin.trios.add')->with('trio', $request->except("_token"));
     }
 });
