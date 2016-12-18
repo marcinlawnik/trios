@@ -20,9 +20,11 @@ DB_PASSWORD=<hasło do bazy danych>
 ```
 7. Stwórz tabele w bazie danych i dodaj do niej testowe dane
 `php artisan migrate:refresh --seed`
-8. Uruchom aplikację
+8. Wygeneruj klucz
+`php artisan key:generate`
+9. Uruchom aplikację
 `php artisan serve`
-9. Wejdź pod adres `localhost:8000` i korzystaj z aplikacji.
+10. Wejdź pod adres `localhost:8000` i korzystaj z aplikacji.
 
 ### Wymagania
 
