@@ -31,6 +31,26 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/admin/trios/', function () {
+
+    $trios = Trio::all();
+    return view('admin.trios')->withTrios($trios);
+
+});
+
+Route::get('/admin/trios/stats', function () {
+
+    $startTime = microtime(true);
+    $triosCount = Trio::all()->count();
+    $endTime = microtime(true);
+    $time = $endTime - $startTime;
+    $exampleTrios = Trio::orderBy('id', 'desc')->take(10)->get();
+
+    return view('admin.stats')->withTime($time)->with('triosCount', $triosCount)
+        ->with('exampleTrios', $exampleTrios);
+
+});
+
 Route::get('/admin/trios/{trio}', function(Trio $trio) {
     return view('admin.trios.view')->with('trio', $trio);
 })->where('trio', '[0-9]+');
@@ -75,4 +95,5 @@ Route::post('/admin/trios/add', function(Request $request) {
     } else {
         return view('admin.trios.add')->with('trio', $request->except("_token"));
     }
+
 });
