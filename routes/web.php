@@ -17,7 +17,7 @@ use App\Trio;
 Route::get('/', function () {
     $trio = Trio::inRandomOrder()->first();
     $trioText = $trio->sentence1;
-    return view('welcome')->with('time', Carbon::now())->with('trio', $trioText);
+    return view('home')->with('time', Carbon::now())->with('trio', $trioText);
 });
 
 Route::get('/dev/playground', function() {
