@@ -11,21 +11,15 @@
 |
 */
 
-use Carbon\Carbon;
 use App\Trio;
 
-Route::get('/', function () {
-    $trio = Trio::inRandomOrder()->first();
-    $trioText = $trio->sentence1;
-    return view('home')->with('time', Carbon::now())->with('trio', $trioText);
-});
 
 Route::get('/dev/playground', function() {
-    $data = ['test' => 'test'];
-
-    return view('dev.playground')->with('data', $data);
+    $trio = Trio::inRandomOrder()->first();
+    return view('dev.playground')->with('data', $trio);
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
+Route::resource('trios', 'TriosController');

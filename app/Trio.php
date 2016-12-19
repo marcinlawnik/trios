@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Trio extends Model
 {
+    protected $table = 'trios';
     /**
      * The attributes that are mass assignable.
      *
