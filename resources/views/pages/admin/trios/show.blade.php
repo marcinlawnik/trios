@@ -5,9 +5,9 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    List of all trios
+                    Single trio {{ $trio->id }}
                 </div>
-                @foreach($trios as $trio)
+                <div class="panel-body">
                     <ul>
                         <li>ID: {{ $trio->id }}</li>
                         <li>sentence1: {{ $trio->sentence1 }}</li>
@@ -19,10 +19,8 @@
                         <li>answer: {{ $trio->answer }}</li>
                         <li>created at: {{ $trio->created_at }}</li>
                         <li>updated at: {{ $trio->updated_at }}</li>
-                        <li><a href='{{ action('TriosController@show', $trio->id) }}'>View trio</a></li>
                         <li><a href='{{ action('TriosController@edit', $trio->id) }}'>Edit trio</a></li>
                     </ul>
-                @endforeach
                 </div>
             </div>
         </div>

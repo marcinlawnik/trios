@@ -74,7 +74,8 @@ class TriosController extends Controller
      */
     public function show($id)
     {
-        //
+        $trio = Trio::findOrFail($id);
+        return view('pages.admin.trios.show')->with('trio', $trio);
     }
 
     /**
