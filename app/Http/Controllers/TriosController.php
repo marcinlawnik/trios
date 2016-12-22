@@ -30,7 +30,7 @@ class TriosController extends Controller
      */
     public function create()
     {
-        return view('pages.create');
+        return view('pages.admin.trios.create');
     }
 
     /**
