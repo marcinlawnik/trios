@@ -22,4 +22,12 @@ Route::get('/dev/playground', function() {
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
-Route::resource('trios', 'TriosController');
+
+// Admin panel routes
+Route::group(['prefix' => 'admin'], function () {
+
+    Route::get('stats', 'StatsController@index');
+    Route::resource('trios', 'TriosController');
+
+});
+
