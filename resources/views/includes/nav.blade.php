@@ -13,6 +13,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/') }}">Home</a></li>
                 <li><a href="{{ url('/dev/playground') }}">Playground</a></li>
+                <li><a href="{{ action('TriosController@index') }}">Trios management</a></li>
             </ul>
             @if (Route::has('login'))
                 <ul class="nav navbar-nav navbar-right">
