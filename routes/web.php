@@ -12,6 +12,7 @@
 */
 
 use App\Trio;
+use Illuminate\Http\Request;
 
 
 Route::get('/dev/playground', function() {
@@ -30,4 +31,3 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('trios', 'TriosController');
 
 });
-
