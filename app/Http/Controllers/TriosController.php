@@ -86,7 +86,8 @@ class TriosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $trio = Trio::findOrFail($id);
+        return view('pages.admin.trios.edit')->with('trio', $trio);
     }
 
     /**
@@ -95,9 +96,18 @@ class TriosController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update(Request $request, Trio $trio)
     {
-        //
+        $trio->sentence1 = $request->input('sentence1', $trio->sentence1);
+        $trio->sentence2 = $request->input('sentence2', $trio->sentence2);
+        $trio->sentence3 = $request->input('sentence3', $trio->sentence3);
+        $trio->explanation1 = $request->input('explanation1', $trio->explanation1);
+        $trio->explanation2 = $request->input('explanation2', $trio->explanation2);
+        $trio->explanation3 = $request->input('explanation3', $trio->explanation3);
+        $trio->answer = $request->input('answer', $trio->answer);
+
+        $trio->save();
+        return redirect("/admin/trios/{$trio->id}");
     }
 
     /**
