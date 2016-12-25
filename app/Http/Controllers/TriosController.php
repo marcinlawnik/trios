@@ -116,9 +116,11 @@ class TriosController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Trio $trio)
     {
-        //
+        $trio->delete();
+        $request->session()->flash('message', 'Trio zostało usunięte!');
+        return redirect()->action('TriosController@index');
     }
 
 }
