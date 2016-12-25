@@ -31,7 +31,20 @@
                         <th>{{ $trio->answer }}</th>
                         <th><a href='{{ action('TriosController@show', $trio->id) }}'><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-list-alt"></span></button></a></th>
                         <th><a href='{{ action('TriosController@edit', $trio->id) }}'><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></th>
-                        <th><a href='{{ action('TriosController@destroy', $trio->id) }}'><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a></th>
+                        <th>
+                            <!-- Delete Button -->
+                            {{-- To musi być formularz, albo dołączamy więcej js. --}}
+                            {{-- See: https://laravel.com/docs/5.2/quickstart-intermediate#adding-the-delete-button --}}
+                            <form action="{{ action('TriosController@destroy', $trio->id) }}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+
+                                <button type="submit" class="btn btn-danger btn-xs">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </form>
+
+                        </th>
                     </tr>
                 @endforeach
                 </tbody>

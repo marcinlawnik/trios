@@ -4,6 +4,7 @@
 <body>
     <div class="container">
         @include('includes.nav')
+        @include('includes.messages')
         @yield('content')
     </div>
 @include('includes.js')
