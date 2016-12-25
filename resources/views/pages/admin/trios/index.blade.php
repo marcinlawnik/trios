@@ -1,30 +1,41 @@
 @extends('layouts.app')
 @section('content')
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    List of all trios
-                </div>
+        <div class="col-md-12">
+            <table class="table table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Sentence 1</th>
+                    <th>Sentence 2</th>
+                    <th>Sentence 3</th>
+                    <th>Explanation 1</th>
+                    <th>Explanation 2</th>
+                    <th>Explanation 3</th>
+                    <th>Answer</th>
+                    <th>View</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
                 @foreach($trios as $trio)
-                    <ul>
-                        <li>ID: {{ $trio->id }}</li>
-                        <li>sentence1: {{ $trio->sentence1 }}</li>
-                        <li>sentence2: {{ $trio->sentence2 }}</li>
-                        <li>sentence3: {{ $trio->sentence3 }}</li>
-                        <li>explanation1: {{ $trio->explanation1 }}</li>
-                        <li>explanation2: {{ $trio->explanation2 }}</li>
-                        <li>explanation3: {{ $trio->explanation3 }}</li>
-                        <li>answer: {{ $trio->answer }}</li>
-                        <li>created at: {{ $trio->created_at }}</li>
-                        <li>updated at: {{ $trio->updated_at }}</li>
-                        <li><a href='{{ action('TriosController@show', $trio->id) }}'>View trio</a></li>
-                        <li><a href='{{ action('TriosController@edit', $trio->id) }}'>Edit trio</a></li>
-                    </ul>
+                    <tr>
+                        <th>{{ $trio->id }}</th>
+                        <th>{{ $trio->sentence1 }}</th>
+                        <th>{{ $trio->sentence2 }}</th>
+                        <th>{{ $trio->sentence3 }}</th>
+                        <th>{{ str_limit($trio->explanation1, $limit = 50, $end = '...') }}</th>
+                        <th>{{ str_limit($trio->explanation2, $limit = 50, $end = '...') }}</th>
+                        <th>{{ str_limit($trio->explanation3, $limit = 50, $end = '...') }}</th>
+                        <th>{{ $trio->answer }}</th>
+                        <th><a href='{{ action('TriosController@show', $trio->id) }}'><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-list-alt"></span></button></a></th>
+                        <th><a href='{{ action('TriosController@edit', $trio->id) }}'><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></th>
+                        <th><a href='{{ action('TriosController@destroy', $trio->id) }}'><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a></th>
+                    </tr>
                 @endforeach
-                </div>
-            </div>
+                </tbody>
+            </table>
         </div>
     </div>
 @endsection
