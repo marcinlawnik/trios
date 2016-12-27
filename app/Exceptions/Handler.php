@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -44,6 +45,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if($exception instanceof ModelNotFoundException) {
+            if ($exception->getModel() == 'App\Trio') {
+                return redirect()
+                    ->action('SolveController@show', \App\Trio::inRandomOrder()->first()->id)
+                    ->with('error', 'Trio not found, redirecting to random trio.');
+            }
+        }
+
         return parent::render($request, $exception);
     }
 

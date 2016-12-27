@@ -24,6 +24,12 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
+Route::get('solve', 'SolveController@getRandom');
+
+Route::get('solve/{trio}', 'SolveController@show');
+
+Route::post('solve/{trio}', 'SolveController@check');
+
 // Admin panel routes
 Route::group(['prefix' => 'admin'], function () {
 
