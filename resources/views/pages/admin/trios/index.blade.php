@@ -48,7 +48,9 @@
                 @endforeach
                 </tbody>
             </table>
-            {{ $trios->links() }}
+            <div class="text-center">
+                {{ $trios->links() }}
+            </div>
         </div>
     </div>
 @endsection
