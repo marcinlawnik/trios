@@ -43,12 +43,12 @@
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </form>
-
                         </th>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
+            {{ $trios->links() }}
         </div>
     </div>
 @endsection
