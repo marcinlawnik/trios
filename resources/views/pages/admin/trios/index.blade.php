@@ -31,7 +31,7 @@
                         <th>{{ $trio->answer }}</th>
                         <th><a href='{{ action('TriosController@show', $trio->id) }}'><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-list-alt"></span></button></a></th>
                         <th><a href='{{ action('TriosController@edit', $trio->id) }}'><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></th>
-                        <th><a href='{{ action('TriosController@destroy', $trio->id) }}'><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a></th>
+                        <th><button route="{{action('TriosController@destroy', $trio->id)}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></th>
                     </tr>
                 @endforeach
                 </tbody>

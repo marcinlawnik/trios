@@ -118,7 +118,8 @@ class TriosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $trio = Trio::findOrFail($id);
+        $trio->delete();
     }
 
 }
