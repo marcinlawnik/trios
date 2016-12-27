@@ -6,20 +6,4 @@
     $('ul.nav a').filter(function() {
         return this.href == window.location;
     }).parent().addClass('active');
-    $(document).ready(function() {
-        $(".btn-danger").click(function () {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                url: $(this).attr('route'),
-                type: 'DELETE',
-                success: function (result) {
-                    $(this).closest('tr').remove();
-                }
-            });
-        });
-    });
 </script>
