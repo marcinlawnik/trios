@@ -23,6 +23,22 @@
                     </ul>
                 </div>
             </div>
+
+            @if(count($trio->wrongAnswers))
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Wrong answers for this trio
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        @foreach($trio->wrongAnswers as $wrongAnswer)
+                        <li>{{ $wrongAnswer->answer }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @endif
+
         </div>
     </div>
 @endsection
