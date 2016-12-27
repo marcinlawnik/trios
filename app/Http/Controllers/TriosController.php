@@ -20,7 +20,7 @@ class TriosController extends Controller
      */
     public function index()
     {
-        $trios = Trio::all();
+        $trios = Trio::paginate(15);
         return view('pages.admin.trios.index')->withTrios($trios);
     }
 
