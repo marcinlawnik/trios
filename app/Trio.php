@@ -25,4 +25,12 @@ class Trio extends Model
         'explanation3',
         'answer'
     ];
+
+    /**
+     * Get wrong answers for trio.
+     */
+    public function wrongAnswers()
+    {
+        return $this->hasMany('App\WrongAnswer');
+    }
 }

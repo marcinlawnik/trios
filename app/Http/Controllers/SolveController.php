@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Trio;
+use App\WrongAnswer;
 use Illuminate\Http\Request;
 
 class SolveController extends Controller
@@ -32,6 +33,13 @@ class SolveController extends Controller
             return redirect()->action('SolveController@show', Trio::inRandomOrder()->first()->id);
         } else {
             // Błędna
+
+            // Zapisujemy błędną odpowiedź
+            $wrongAnswer = new WrongAnswer;
+            $wrongAnswer->trio_id = $trio->id;
+            $wrongAnswer->answer = $answer;
+            $wrongAnswer->save();
+
             $request->session()->flash('error', 'Wrong answer!');
             return redirect()->action('SolveController@show', $trio->id);
         }
