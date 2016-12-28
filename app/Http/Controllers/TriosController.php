@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 
 use App\Trio;
+use App\TrioChange;
 use Illuminate\Http\Request;
 use \Validator;
 
@@ -98,16 +99,37 @@ class TriosController extends Controller
      */
     public function update(Request $request, Trio $trio)
     {
-        $trio->sentence1 = $request->input('sentence1', $trio->sentence1);
-        $trio->sentence2 = $request->input('sentence2', $trio->sentence2);
-        $trio->sentence3 = $request->input('sentence3', $trio->sentence3);
-        $trio->explanation1 = $request->input('explanation1', $trio->explanation1);
-        $trio->explanation2 = $request->input('explanation2', $trio->explanation2);
-        $trio->explanation3 = $request->input('explanation3', $trio->explanation3);
-        $trio->answer = $request->input('answer', $trio->answer);
+        foreach ($trio->getFillable() as $field) {
+            $this->registerChange($request, $trio, $field);
+            $trio[$field] = $request->input($field, $trio[$field]);
+        }
 
         $trio->save();
+
         return redirect("/admin/trios/{$trio->id}");
+    }
+
+    /**
+     * Check if change occurred and register it.
+     *
+     * @param $request
+     * @param $trio
+     * @param $field
+     */
+    public function registerChange($request, $trio, $field)
+    {
+        if($trio[$field] !== $request->input($field)) {
+            $trioChange = new TrioChange;
+
+            $trioChange->trio_id = $trio->id;
+            // Set to 0 if user is not logged in
+            $trioChange->user_id = $request->user() ? $request->user()->id : 0;
+            $trioChange->field_name = $field;
+            $trioChange->before = $trio[$field];
+            $trioChange->after = $request->input($field);
+
+            $trioChange->save();
+        }
     }
 
     /**
