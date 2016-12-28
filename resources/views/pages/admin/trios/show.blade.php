@@ -63,7 +63,7 @@
                                     <td><pre>{{ $change->field_name }}</pre></td>
                                     <td><pre>{{ $change->before }}</pre></td>
                                     <td><pre>{{ $change->after }}</pre></td>
-                                    <td>{{ $change->created_at->format('m-d-Y H:i') }}</td>
+                                    <td>{{ $change->created_at->format('d-m-Y H:i') }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

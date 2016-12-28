@@ -101,7 +101,7 @@ class TriosController extends Controller
     {
         foreach ($trio->getFillable() as $field) {
             $this->registerChange($request, $trio, $field);
-            $trio[$field] = $request->input($field, $trio[$field]);
+            $trio->$field = $request->input($field, $trio->$field);
         }
 
         $trio->save();
@@ -116,7 +116,7 @@ class TriosController extends Controller
      * @param $trio
      * @param $field
      */
-    public function registerChange($request, $trio, $field)
+    public function registerChange(Request $request, Trio $trio, $field)
     {
         if($trio[$field] !== $request->input($field)) {
             $trioChange = new TrioChange;
