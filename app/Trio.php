@@ -33,4 +33,12 @@ class Trio extends Model
     {
         return $this->hasMany('App\WrongAnswer');
     }
+
+    /**
+     * Get updates of trio.
+     */
+    public function changes()
+    {
+        return $this->hasMany('App\TrioChange');
+    }
 }

@@ -38,6 +38,39 @@
                 </div>
             </div>
             @endif
+        </div>
+        <div class="col-md-12">
+            @if(count($trio->changes))
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Changes
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped table-responsive">
+                            <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Field</th>
+                                <th>Before</th>
+                                <th>After</th>
+                                <th>Date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($trio->changes as $change)
+                                <tr>
+                                    <td>{{ $change->user_id }}</td>
+                                    <td><pre>{{ $change->field_name }}</pre></td>
+                                    <td><pre>{{ $change->before }}</pre></td>
+                                    <td><pre>{{ $change->after }}</pre></td>
+                                    <td>{{ $change->created_at->format('d-m-Y H:i') }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            @endif
 
         </div>
     </div>
