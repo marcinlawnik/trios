@@ -30,6 +30,8 @@ Route::get('solve/{trio}', 'SolveController@show');
 
 Route::post('solve/{trio}', 'SolveController@check');
 
+Route::get('user/{user}', 'UserController@show');
+
 // Admin panel routes
 Route::group(['prefix' => 'admin'], function () {
 
