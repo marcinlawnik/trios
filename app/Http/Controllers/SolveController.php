@@ -47,13 +47,13 @@ class SolveController extends Controller
 
     private function updateStats($user_id, $trio_id, $correct) {
         // Śledzimy tylko użytkowników
-        if($user_id)
+        if($user_id !== 0)
         {
             $trioAttempts = UserTrioAttempt::where('trio_id', $trio_id)
                 ->where('user_id', $user_id)->first();
 
             // Sprawdzamy czy użytk. próbował rozwiącać to trio
-            if(!$trioAttempts) {
+            if($trioAttempts === null) {
                 // Jeśli nie to tworzymy statystykę dla trio
                 $trioAttempts = new UserTrioAttempt;
                 $trioAttempts->trio_id = $trio_id;
