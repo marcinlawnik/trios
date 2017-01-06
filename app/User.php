@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get trios which user attempted to solve.
+     */
+    public function triosAttempts()
+    {
+        return $this->hasMany('App\UserTrioAttempt')->orderBy('trio_id');
+    }
 }

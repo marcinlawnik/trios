@@ -24,6 +24,7 @@
                                 <li><a href="{{ url('/login') }}">Login</a></li>
                                 <li><a href="{{ url('/register') }}">Register</a></li>
                             @else
+                                <li><a href="{{ action('UserController@show', ['user' => Auth::user()->id]) }}">Your profile</a></li>
                                 <li><a href="{{ url('/') }}">Options</a></li>
                                 <li><a href="{{ url('/logout') }}"
                                        onclick="event.preventDefault();
