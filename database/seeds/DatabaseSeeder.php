@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //$this->call(TriosDevTableSeeder::class);
-        //$this->call(EntrustSeeder::class);
+        $this->call(TriosDevTableSeeder::class);
+        $this->call(EntrustSeeder::class);
     }
 }
