@@ -116,7 +116,7 @@ class TriosController extends Controller
      * @param $trio
      * @param $field
      */
-    public function registerChange(Request $request, Trio $trio, $field)
+    private function registerChange(Request $request, Trio $trio, $field)
     {
         if($trio[$field] !== $request->input($field)) {
             $trioChange = new TrioChange;

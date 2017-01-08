@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 
-
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -12,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call('TriosDevTableSeeder');
-        $this->call('EntrustSeeder');
+        $this->call(TriosDevTableSeeder::class);
+        $this->call(EntrustSeeder::class);
     }
 }
