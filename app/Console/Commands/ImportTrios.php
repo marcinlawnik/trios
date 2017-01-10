@@ -10,8 +10,7 @@ class ImportTrios extends Command
     protected $error = [];
     protected $answers = [];
     protected $currentAnswer = 0;
-    protected $emptyFieldChar = '$';
-    protected $emptyFieldString = '';
+    protected $emptyFieldString = '$@$';
 
     /**
      * The name and signature of the console command.
@@ -35,7 +34,6 @@ class ImportTrios extends Command
     public function __construct()
     {
         parent::__construct();
-        $this->emptyFieldString = str_repeat($this->emptyFieldChar, 7);
     }
 
     /**
