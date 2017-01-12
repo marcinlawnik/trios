@@ -13,7 +13,7 @@
                         <li>sentence1: {{ $trio->sentence1 }}</li>
                         <li>sentence2: {{ $trio->sentence2 }}</li>
                         <li>sentence3: {{ $trio->sentence3 }}</li>
-                        <li>answer: {{ $trio->answer }}</li>
+                        {{--<li>answer: {{ $trio->answer }}</li>--}}
                     </ul>
                     <form action="{{ action('SolveController@check', $trio->id) }}" class="form-horizontal" method="post" role="form">
                         {{ csrf_field() }}
@@ -25,7 +25,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
+                                <div class="col-md-2 col-md-offset-5">
                                     <button class="btn btn-default" type="submit">Check</button>
                                 </div>
                             </div>
