@@ -1,0 +1,30 @@
+.body {
+  margin: 50px 0;
+  padding: 0;
+}
+
+.btn {
+  &--home {
+    width: 90%;
+    display: block;
+    font-size: 30px;
+    margin: 10px auto;
+    margin-bottom: 20px;
+  }
+
+  &--login {
+    color: white;
+    background-color: #495582;
+    border-color: #495582;
+
+    &:hover {
+      color: white;
+      background-color: #191F36;
+      border-color: #191F36 ;
+    }
+  }
+
+  @media screen and (min-width: 500px) {
+    width: 450px;
+  }
+}
