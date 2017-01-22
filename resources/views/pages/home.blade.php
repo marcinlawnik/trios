@@ -4,7 +4,9 @@
   <section class="home">
 
     @yield('content')
+    <div class="home--logo">
     @include('includes.trio-logo')
+    </div>
 
     <div>
       <p class="center-block text-center home--info">

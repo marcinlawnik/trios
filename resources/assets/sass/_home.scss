@@ -5,8 +5,13 @@
   &--info {
     color: #191F36;
     font-size: 24px;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-bottom: 50px;
+  }
+
+  &--logo {
+    width: 320px;
+    margin: 0 auto;
   }
 
   @media screen and (min-width: 500px) {

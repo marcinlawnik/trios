@@ -7727,8 +7727,13 @@ button.close {
 .home--info {
   color: #191F36;
   font-size: 24px;
-  margin-top: 10px;
+  margin-top: 25px;
   margin-bottom: 50px;
+}
+
+.home--logo {
+  width: 320px;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 500px) {
@@ -7738,8 +7743,7 @@ button.close {
 }
 
 .logo {
-  width: 320px;
-  margin: 0 auto;
+  width: inherit;
 }
 
 .logo--container {
@@ -7748,18 +7752,18 @@ button.close {
 
 .logo--title {
   position: absolute;
-  font-size: 100px;
+  font-size: 7.15em;
   font-family: 'Righteous', cursive;
-  width: 230px;
+  width: 71.875%;
   display: inline-block;
-  left: 120px;
+  left: 29.6875%;
   color: #495582;
 }
 
 .logo--image {
   display: inline-block;
-  width: 190px;
-  margin-top: -15px;
+  width: 43.75%;
+  margin-top: 30px;
 }
 
 /*# sourceMappingURL=app.css.map */

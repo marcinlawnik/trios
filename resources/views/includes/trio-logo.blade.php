@@ -1,6 +1,8 @@
 <header class="logo">
   <div class="logo--container">
-    <img class="logo--image" src="./img/logo.png" />
+    <object type="image/svg+xml" data="./vectors/trios_logo.svg" class="logo--image">
+      Your browser does not support SVG
+    </object>
     <h1 class="logo--title">rios</h1>
   </div>
 </header>
