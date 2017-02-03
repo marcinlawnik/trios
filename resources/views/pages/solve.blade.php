@@ -8,6 +8,7 @@
                     Single trio {{ $trio->id }}
                 </div>
                 <div class="panel-body">
+                    <div id = "alert_placeholder"></div>
                     <ul>
                         <li>ID: {{ $trio->id }}</li>
                         <li>sentence1: {{ $trio->sentence1 }}</li>
@@ -15,8 +16,9 @@
                         <li>sentence3: {{ $trio->sentence3 }}</li>
                         {{--<li>answer: {{ $trio->answer }}</li>--}}
                     </ul>
-                    <form action="{{ action('SolveController@check', $trio->id) }}" class="form-horizontal" method="post" role="form">
+                    <form action="{{ action('SolveController@check', $trio->id) }}" class="form-horizontal" method="post" role="form" id="trios-form">
                         {{ csrf_field() }}
+                        <input type="hidden" id="trios-answer" value="{{ $trio->answer }}">
                         <fieldset>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="answer">Answer</label>
