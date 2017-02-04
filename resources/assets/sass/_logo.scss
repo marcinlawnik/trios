@@ -1,0 +1,24 @@
+.logo {
+  width: inherit;
+
+  &--container {
+    position: relative;
+  }
+
+  &--title {
+    position: absolute;
+    font-size: 7.15em;
+    font-family: 'Righteous', cursive;
+    width: 71.875%;
+    display: inline-block;
+    left: 29.6875%;
+    color: #495582;
+  }
+
+  &--image {
+    display: inline-block;
+    // width: 140px;
+    width: 43.75%;
+    margin-top: 30px;
+  }
+}
