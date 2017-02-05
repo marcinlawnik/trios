@@ -3,7 +3,6 @@
 @include('includes.head')
 <body>
     <div class="container">
-        @include('includes.nav')
         @include('includes.messages')
         @yield('content')
     </div>
