@@ -24,9 +24,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="text-center">
-                                    <button class="btn btn-default" type="submit">Check</button>
-                                </div>
+                                <button class="btn btn-default" type="submit">Check</button>
+                                <a href="{{ action('SolveController@getRandom') }}"
+                                   class="btn btn-danger" type="submit">I don't know</a>
                             </div>
                         </fieldset>
                     </form>
