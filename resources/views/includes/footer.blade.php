@@ -1,0 +1,1 @@
+<footer class="text-center">© @php echo date('Y'); @endphp Trios</footer>
