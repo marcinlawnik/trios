@@ -5,14 +5,13 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Single trio {{ $trio->id }}
+                    Trio {{ $trio->id }}
                 </div>
                 <div class="panel-body">
                     <ul>
-                        <li>ID: {{ $trio->id }}</li>
-                        <li>sentence1: {{ $trio->sentence1 }}</li>
-                        <li>sentence2: {{ $trio->sentence2 }}</li>
-                        <li>sentence3: {{ $trio->sentence3 }}</li>
+                        <li>{{ $trio->sentence1 }}</li>
+                        <li>{{ $trio->sentence2 }}</li>
+                        <li>{{ $trio->sentence3 }}</li>
                         {{--<li>answer: {{ $trio->answer }}</li>--}}
                     </ul>
                     <form action="{{ action('SolveController@check', $trio->id) }}" class="form-horizontal" method="post" role="form">
@@ -25,7 +24,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-2 col-md-offset-5">
+                                <div class="text-center">
                                     <button class="btn btn-default" type="submit">Check</button>
                                 </div>
                             </div>
