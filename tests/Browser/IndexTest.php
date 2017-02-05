@@ -20,4 +20,15 @@ class IndexTest extends DuskTestCase
                     ->assertSee('Trios is a simple exercise to test your English skills.');
         });
     }
+
+    public function testCanGoToSolvingScreen()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/')
+                ->clickLink('Play')
+                ->assertPathIs('/solve')
+                ->assertSee('Trio')
+                ->assertSee('Check');
+        });
+    }
 }
