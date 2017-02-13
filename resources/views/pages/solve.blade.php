@@ -8,14 +8,16 @@
                     Trio {{ $trio->id }}
                 </div>
                 <div class="panel-body">
+                    <div id = "alert_placeholder"></div>
                     <ul>
                         <li>{{ $trio->sentence1 }}</li>
                         <li>{{ $trio->sentence2 }}</li>
                         <li>{{ $trio->sentence3 }}</li>
                         {{--<li>answer: {{ $trio->answer }}</li>--}}
                     </ul>
-                    <form action="{{ action('SolveController@check', $trio->id) }}" class="form-horizontal" method="post" role="form">
+                    <form action="{{ action('SolveController@check', $trio->id) }}" class="form-horizontal" method="post" role="form" id="trios-form">
                         {{ csrf_field() }}
+                        <input type="hidden" id="trios-answer" value="{{ $trio->answer }}">
                         <fieldset>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="answer">Answer</label>
@@ -23,7 +25,7 @@
                                     <input class="form-control input-md" id="answer" name="answer" placeholder="" value="" required="true" type="text">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group text-center">
                                 <button class="btn btn-default" type="submit">Check</button>
                                 <a href="{{ action('SolveController@getRandom') }}"
                                    class="btn btn-danger" type="submit">I don't know</a>

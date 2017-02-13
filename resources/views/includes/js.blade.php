@@ -6,4 +6,14 @@
     $('ul.nav a').filter(function() {
         return this.href == window.location;
     }).parent().addClass('active');
+    $( document ).ready(function() {
+        $("#trios-form").submit(function (e) {
+            var a1 = $("#answer").val();
+            var a2 = $("#trios-answer").val();
+            if (a1 != a2) {
+                $('#alert_placeholder').html('<div class="alert alert-warning"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Wrong answer</div>');
+                return false;
+            }
+        });
+    });
 </script>

@@ -13,6 +13,18 @@
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="apple-mobile-web-app-title" content="Trios">
+    <meta name="application-name" content="Trios">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Favicons -->
+
     <!-- Scripts -->
     <script>
         window.Laravel = @php json_encode(['csrfToken' => csrf_token()]); @endphp
