@@ -1,6 +1,6 @@
 .home {
   position: relative;
-  margin: 30px auto;
+  margin: 25px auto;
 
   &--info {
     color: #191F36;
@@ -15,6 +15,6 @@
   }
 
   @media screen and (min-width: 500px) {
-    margin: 75px auto;
+    margin: 70px auto;
   }
 }

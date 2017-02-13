@@ -5,8 +5,8 @@
     <div class="container">
         @include('includes.messages')
         @yield('content')
+        @include('includes.footer')
     </div>
 @include('includes.js')
-@include('includes.footer')
 </body>
 </html>

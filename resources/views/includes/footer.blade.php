@@ -1,1 +1,1 @@
-<footer class="text-center">© @php echo date('Y'); @endphp Trios</footer>
+<footer class="text-center">© 2016 - @php echo date('Y'); @endphp Trios</footer>
