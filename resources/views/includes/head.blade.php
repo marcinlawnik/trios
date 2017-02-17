@@ -27,7 +27,8 @@
 
     <!-- Scripts -->
     <script>
-        window.Laravel = @php json_encode(['csrfToken' => csrf_token()]); @endphp
+        //This is already in meta tag. If this breaks something, fix by switching to meta
+        {{--window.Laravel = @php json_encode(['csrfToken' => csrf_token()]); @endphp--}}
     </script>
     <style>
         body {

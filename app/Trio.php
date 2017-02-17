@@ -26,6 +26,13 @@ class Trio extends Model
         'answer'
     ];
 
+    // Atributes hidden from JSON representation
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
+
     /**
      * Get wrong answers for trio.
      */

@@ -14,7 +14,7 @@
           You should put in a single word that fits all three sentences.<br>
           Have fun!
       </p>
-      <a href="{{ action('SolveController@getRandom') }}" class="btn btn-success btn--home text-uppercase">Play</a>
+      <a href="{{ url('/solve') }}" class="btn btn-success btn--home text-uppercase">Play</a>
       <a href="{{ url('/login') }}" class="btn btn--home btn--login text-uppercase">Login</a>
     </div>
   </section>
