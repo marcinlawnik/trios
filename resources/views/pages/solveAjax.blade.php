@@ -1,7 +1,4 @@
 @extends('layouts.app')
-@section('head')
-    @include('includes.solveJs')
-@endsection
 @section('content')
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -36,4 +33,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('afterjs')
+    @include('includes.solveJs')
 @endsection
