@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('includes.head')
+@yield('head')
 <body>
     <div class="container">
         @include('includes.messages')
