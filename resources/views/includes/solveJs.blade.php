@@ -63,6 +63,16 @@
                             .removeClass("btn-default")
                             .addClass("btn-success")
                             .html("Correct, next trio→");
+                        //Fill out the sentences
+                        $("#sentence1").text(function () {
+                            return $(this).text().replace("_____", "_"+ret.answer.attemptedAnswer+"_");
+                        });
+                        $("#sentence2").text(function () {
+                            return $(this).text().replace("_____", "_"+ret.answer.attemptedAnswer+"_");
+                        });
+                        $("#sentence3").text(function () {
+                            return $(this).text().replace("_____", "_"+ret.answer.attemptedAnswer+"_");
+                        });
                         checkButtonState = 2;
                     } else {
                         //ELSE if answer is not correct, change button to red and change text to "try again"
