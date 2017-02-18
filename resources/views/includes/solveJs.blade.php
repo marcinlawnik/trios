@@ -7,6 +7,9 @@
         // 1 - red, try again
         // 2 - green, next trio
         var checkButtonState = 0;
+        // 0 - red, i don't know
+        // 1 - red, next trio
+        var idkButtonState = 0;
 
         //AJAX magic
         //On first load fetch a random trio
@@ -89,24 +92,53 @@
         $("#idk-button").click(function (e) {
             e.preventDefault();
 
-            //Reset check button state
-            if (checkButtonState == 1) {
+            if(idkButtonState == 0) {
+                //jest napis I don't know
+                //wyświetlamy poprawne odp
+                //JSON request
+                var jqxhr = $.getJSON( "/api/solve/"+$("#trio-id").text()+"/answer", function( answer ) {
+                    //Fill out the sentences
+                    $("#sentence1").text(function () {
+                        return $(this).text().replace("_____", "_"+answer.correctAnswer+"_");
+                    });
+                    $("#sentence2").text(function () {
+                        return $(this).text().replace("_____", "_"+answer.correctAnswer+"_");
+                    });
+                    $("#sentence3").text(function () {
+                        return $(this).text().replace("_____", "_"+answer.correctAnswer+"_");
+                    });
+                });
+                //blokujemy input i button
+                $("#answer").prop('disabled', true).val('');
+                $("#check-button").prop('disabled', true);
+                //zmieniamy button na next trio
+                $("#idk-button").text("Next trio.")
+                idkButtonState = 1;
+            } else if (idkButtonState == 1) {
+                // 1 - red, next trio
+                //Reset check button state
                 $("#check-button")
                     .removeClass("btn-danger")
                     .addClass("btn-default")
                     .html("Check");
                 checkButtonState = 0;
+                //Clear and unlock the text input and check button
+                $("#answer").prop('disabled', false).val('');
+                $("#check-button").prop('disabled', false);
+                //load new trio
+                //Make JSON request
+                var jqxhr = $.getJSON( "/api/solve", function( trio ) {
+                    //Fill the page
+                    $("#sentence1").html(trio.sentence1.replace("$@$", "_____"));
+                    $("#sentence2").html(trio.sentence2.replace("$@$", "_____"));
+                    $("#sentence3").html(trio.sentence3.replace("$@$", "_____"));
+                    $("#trio-id").html(trio.id);
+                });
+                //reset idk button state
+                $("#idk-button").val("I don't know.");
+                idkButtonState = 0;
             }
-            //CLear the text input
-            $("#answer").val('');
-            //Make JSON request
-            var jqxhr = $.getJSON( "/api/solve", function( trio ) {
-                //Fill the page
-                $("#sentence1").html(trio.sentence1.replace("$@$", "_____"));
-                $("#sentence2").html(trio.sentence2.replace("$@$", "_____"));
-                $("#sentence3").html(trio.sentence3.replace("$@$", "_____"));
-                $("#trio-id").html(trio.id);
-            });
+
         });
     });
 </script>

@@ -52,6 +52,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::group(['prefix' => 'solve'], function () {
 
         Route::get('{trio}', 'ApiSolveController@getTrio');
+        Route::get('{trio}/answer', 'ApiSolveController@getTrioAnswer');
         Route::get('/', 'ApiSolveController@getRandomTrio');
         Route::post('{trio}', 'ApiSolveController@postCheck');
 

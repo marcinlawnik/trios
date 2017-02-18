@@ -13,6 +13,15 @@ class ApiSolveController extends Controller
         return $trio->toJson();
     }
 
+    function getTrioAnswer(Trio $trio) {
+        $return = [
+            "id" => $trio->id,
+            "correctAnswer" => $trio->answer
+        ];
+
+        return json_encode($return);
+    }
+
     function getRandomTrio() {
         $trio = Trio::inRandomOrder()->first();
 
