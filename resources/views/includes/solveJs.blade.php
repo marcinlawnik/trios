@@ -1,6 +1,18 @@
 <script>
     //Make magic happen
     //Function to load new trio
+    //This function fills out the trio screen
+    //Extracted to avoid repetition
+    function loadTrio(trio) {
+        $("#sentence1").html(trio.sentence1.replace("$@$", "_____"));
+        $("#sentence2").html(trio.sentence2.replace("$@$", "_____"));
+        $("#sentence3").html(trio.sentence3.replace("$@$", "_____"));
+        $("#trio-id").html(trio.id);
+        $(".report").attr('href', $(".report").data('href')
+            .replace('_trioID_', trio.id)
+            .replace('_Sentences_', encodeURIComponent(trio.sentence1 + "\r\n" + trio.sentence2 + "\r\n" + trio.sentence3)));
+    }
+
     $( document ).ready(function() {
 
         // 0 - white, check
@@ -15,16 +27,10 @@
         //On first load fetch a random trio
         var jqxhr = $.getJSON( "/api/solve", function( trio ) {
             //Fill the page
-            $("#sentence1").html(trio.sentence1.replace("$@$", "_____"));
-            $("#sentence2").html(trio.sentence2.replace("$@$", "_____"));
-            $("#sentence3").html(trio.sentence3.replace("$@$", "_____"));
-            $("#trio-id").html(trio.id);
-            $(".report").attr('href', $(".report").data('href').replace('_trioID_', trio.id));
-
+            loadTrio(trio);
         })
             .fail(function() {
                 alert("We're having some trouble fetching a new Trio for you. :< Please try again.");
-                console.log( "error" );
             });
         //After user inputs answer and clicks check
         $("#check-button").click(function (e) {
@@ -35,11 +41,7 @@
                 //Make JSON request
                 var jqxhr = $.getJSON( "/api/solve", function( trio ) {
                     //Fill the page
-                    $("#sentence1").html(trio.sentence1.replace("$@$", "_____"));
-                    $("#sentence2").html(trio.sentence2.replace("$@$", "_____"));
-                    $("#sentence3").html(trio.sentence3.replace("$@$", "_____"));
-                    $("#trio-id").html(trio.id);
-                    $(".report").attr('href', $(".report").data('href').replace('_trioID_', trio.id));
+                    loadTrio(trio);
                 });
                 $("#check-button")
                     .removeClass("btn-success")
@@ -131,10 +133,7 @@
                 //Make JSON request
                 var jqxhr = $.getJSON( "/api/solve", function( trio ) {
                     //Fill the page
-                    $("#sentence1").html(trio.sentence1.replace("$@$", "_____"));
-                    $("#sentence2").html(trio.sentence2.replace("$@$", "_____"));
-                    $("#sentence3").html(trio.sentence3.replace("$@$", "_____"));
-                    $("#trio-id").html(trio.id);
+                    loadTrio(trio);
                 });
                 //reset idk button state
                 $("#idk-button").val("I don't know.");
