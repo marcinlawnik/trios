@@ -19,6 +19,7 @@
             $("#sentence2").html(trio.sentence2.replace("$@$", "_____"));
             $("#sentence3").html(trio.sentence3.replace("$@$", "_____"));
             $("#trio-id").html(trio.id);
+            $(".report").attr('href', $(".report").data('href').replace('_trioID_', trio.id));
 
         })
             .fail(function() {
@@ -38,6 +39,7 @@
                     $("#sentence2").html(trio.sentence2.replace("$@$", "_____"));
                     $("#sentence3").html(trio.sentence3.replace("$@$", "_____"));
                     $("#trio-id").html(trio.id);
+                    $(".report").attr('href', $(".report").data('href').replace('_trioID_', trio.id));
                 });
                 $("#check-button")
                     .removeClass("btn-success")

@@ -26,6 +26,7 @@
                                 <button class="btn btn-default" type="submit" id="check-button">Check</button>
                                 <a id="idk-button" href="#"
                                    class="btn btn-danger" type="submit">I don't know</a>
+                                <a target="_blank" class="report" data-href="https://github.com/AKAI-TRIOS/trios/issues/new?title=_trioID_&amp;labels=content">Report a mistake</a>
                             </div>
                         </fieldset>
                     </form>
