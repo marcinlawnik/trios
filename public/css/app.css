@@ -7718,6 +7718,13 @@ body {
   }
 }
 
+.report {
+  display: block;
+  font-size: 0.9em;
+  color: #8eb4cb;
+  margin-top: 8px;
+}
+
 .home {
   position: relative;
   margin: 25px auto;

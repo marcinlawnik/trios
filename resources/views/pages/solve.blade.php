@@ -29,6 +29,7 @@
                                 <button class="btn btn-default" type="submit">Check</button>
                                 <a href="{{ action('SolveController@getRandom') }}"
                                    class="btn btn-danger" type="submit">I don't know</a>
+                                <a target="_blank" class="report" href="https://github.com/AKAI-TRIOS/trios/issues/new?title={{$trio->id}}&amp;labels=content">Report a mistake</a>
                             </div>
                         </fieldset>
                     </form>
