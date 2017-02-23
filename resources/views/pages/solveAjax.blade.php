@@ -19,7 +19,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="answer">Answer</label>
                                 <div class="col-md-4">
-                                    <input class="form-control input-md" id="answer" name="answer" placeholder="" value="" required="true" type="text">
+                                    <input class="form-control input-md" id="answer" name="answer" placeholder="" value="" required="true" autofocus autocomplete="off" type="text">
                                 </div>
                             </div>
                             <div class="form-group text-center">
