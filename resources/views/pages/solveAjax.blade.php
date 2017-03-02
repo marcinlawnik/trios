@@ -23,9 +23,9 @@
                                 </div>
                             </div>
                             <div class="form-group text-center">
-                                <button class="btn btn-default" type="submit" id="check-button">Check</button>
+                                <button class="btn btn-primary" type="submit" id="check-button">Check</button>
                                 <a id="idk-button" href="#"
-                                   class="btn btn-danger" type="submit">I don't know</a>
+                                   class="btn btn-default" type="submit">I don't know</a>
                                 <a target="_blank" class="report" data-href="https://github.com/AKAI-TRIOS/trios/issues/new?title=_trioID_&labels=content&body=_Sentences_">Report a mistake</a>
                             </div>
                         </fieldset>
