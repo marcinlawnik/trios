@@ -46,7 +46,7 @@
                 $("#check-button")
                     .removeClass("btn-success")
                     .removeClass("btn-danger")
-                    .addClass("btn-default")
+                    .addClass("btn-primary")
                     .html("Check");
                 //Clear the text input
                 $("#answer").val('');
@@ -67,7 +67,7 @@
                         //IF answer is correct, change button to green and change text to "Next trio"
                         $("#check-button")
                             .removeClass("btn-danger")
-                            .removeClass("btn-default")
+                            .removeClass("btn-primary")
                             .addClass("btn-success")
                             .html("Correct, next trio→");
                         //Fill out the sentences
@@ -84,7 +84,7 @@
                     } else {
                         //ELSE if answer is not correct, change button to red and change text to "try again"
                         $("#check-button")
-                            .removeClass("btn-default")
+                            .removeClass("btn-primary")
                             .addClass("btn-danger")
                             .html("Try again");
                         checkButtonState = 1;
@@ -123,7 +123,7 @@
                 //Reset check button state
                 $("#check-button")
                     .removeClass("btn-danger")
-                    .addClass("btn-default")
+                    .addClass("btn-primary")
                     .html("Check");
                 checkButtonState = 0;
                 //Clear and unlock the text input and check button
