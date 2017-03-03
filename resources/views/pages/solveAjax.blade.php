@@ -9,7 +9,7 @@
                 </div>
                 <div class="panel-body">
                     <div id = "alert_placeholder"></div>
-                    <ul>
+                    <ul id="sentences">
                         <li id="sentence1"></li>
                         <li id="sentence2"></li>
                         <li id="sentence3"></li>
