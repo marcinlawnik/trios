@@ -32,7 +32,7 @@ class TriosController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.trios.create');
+        return view('pages.admin.trios.trio');
     }
 
     /**
@@ -40,30 +40,28 @@ class TriosController extends Controller
      * @param  Request  $r
      * @return Response
      */
-    public function store(Request $r)
+    public function store(Request $request)
     {
-        $v = Validator::make($r->all(), [
-            's1' => 'required',
-            's2' => 'required',
-            's3' => 'required',
-            'e1' => 'required',
-            'e2' => 'required',
-            'e3' => 'required',
-            'a' => 'required'
+        $v = Validator::make($request->all(), [
+            'sentence1' => 'required',
+            'sentence2' => 'required',
+            'sentence3' => 'required',
+            'explanation1' => 'required',
+            'explanation2' => 'required',
+            'explanation3' => 'required',
+            'answer' => 'required'
         ]);
         if($v->fails()) {
-            return redirect('/trios/create');
+            return redirect()->action('TriosController@create');
         } else {
-            $trios = new Trio;
-            $trios->sentence1 = $r->input('s1');
-            $trios->sentence2 = $r->input('s2');
-            $trios->sentence3 = $r->input('s3');
-            $trios->explanation1 = $r->input('e1');
-            $trios->explanation2 = $r->input('e2');
-            $trios->explanation3 = $r->input('e3');
-            $trios->answer = $r->input('a');
-            $trios->save();
-            return redirect('/trios/create')->with('msg', 'Success');
+            $trio = new Trio;
+            foreach ($trio->getFillable() as $field) {
+                $trio->$field = $request->input($field, $trio->$field);
+            }
+            $trio->save();
+            return redirect()
+                ->action('TriosController@index')
+                ->with('message', 'Trio added successfully');
         }
     }
 
@@ -88,7 +86,7 @@ class TriosController extends Controller
     public function edit($id)
     {
         $trio = Trio::findOrFail($id);
-        return view('pages.admin.trios.edit')->with('trio', $trio);
+        return view('pages.admin.trios.trio')->with('trio', $trio);
     }
 
     /**
