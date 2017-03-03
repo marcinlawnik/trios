@@ -23,8 +23,10 @@ body {
     }
   }
 
-  @media screen and (min-width: 500px) {
-    width: 450px;
+  &-big {
+      @media screen and (min-width: 500px) {
+        width: 450px;
+      }
   }
 }
 
