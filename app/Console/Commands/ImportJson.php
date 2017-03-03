@@ -32,7 +32,7 @@ class ImportJson extends Command
     public function __construct()
     {
         parent::__construct();
-        $this->inputDirectory = storage_path('app/trios');
+        $this->inputDirectory = storage_path('app\trios');
     }
 
     /**

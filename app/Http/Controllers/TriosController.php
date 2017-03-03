@@ -63,7 +63,7 @@ class TriosController extends Controller
             $trios->explanation3 = $r->input('e3');
             $trios->answer = $r->input('a');
             $trios->save();
-            return redirect('/trios/create')->with('msg', 'Success');
+            return redirect('admin/trios/create')->with('msg', 'Success');
         }
     }
 
