@@ -7713,14 +7713,21 @@ body {
 }
 
 @media screen and (min-width: 500px) {
-  .btn {
+  .btn-big {
     width: 450px;
   }
 }
 
+.report {
+  display: block;
+  font-size: 0.9em;
+  color: #8eb4cb;
+  margin-top: 8px;
+}
+
 .home {
   position: relative;
-  margin: 30px auto;
+  margin: 25px auto;
 }
 
 .home--info {
@@ -7737,7 +7744,7 @@ body {
 
 @media screen and (min-width: 500px) {
   .home {
-    margin: 75px auto;
+    margin: 70px auto;
   }
 }
 

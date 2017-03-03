@@ -23,7 +23,16 @@ body {
     }
   }
 
-  @media screen and (min-width: 500px) {
-    width: 450px;
+  &-big {
+      @media screen and (min-width: 500px) {
+        width: 450px;
+      }
   }
+}
+
+.report {
+  display: block;
+  font-size: 0.9em;
+  color: $report-link;
+  margin-top: 8px;
 }

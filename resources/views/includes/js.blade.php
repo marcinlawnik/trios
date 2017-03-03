@@ -3,14 +3,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
 <script>
-    $( document ).ready(function() {
-        $("#trios-form").submit(function (e) {
-            var a1 = $("#answer").val();
-            var a2 = $("#trios-answer").val();
-            if (a1 != a2) {
-                $('#alert_placeholder').html('<div class="alert alert-warning"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Wrong answer</div>');
-                return false;
-            }
-        });
-    });
+    //Make cyrrent nav section active
+    $('ul.nav a').filter(function() {
+        return this.href == window.location;
+    }).parent().addClass('active');
 </script>
