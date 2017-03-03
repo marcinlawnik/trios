@@ -57,6 +57,7 @@
                     .removeClass("btn-danger")
                     .addClass("btn-primary")
                     .html("Check");
+                $("#idk-button").prop("disabled", false);
                 //Clear the text input
                 $("#answer").val("");
                 checkButtonState = 0;
@@ -78,6 +79,7 @@
                         .removeClass("btn-primary")
                         .addClass("btn-success")
                         .html("Correct, next trio→");
+                    $("#idk-button").prop("disabled", true);
 
                     //Fill out the sentences
                     fillBlanks(ret.answer.attemptedAnswer);
