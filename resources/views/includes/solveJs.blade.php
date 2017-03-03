@@ -4,10 +4,10 @@
     //This function fills out the trio screen
     //Extracted to avoid repetition
     function loadTrio(trio) {
-        var blank = "<span class='blank'>_____</span>";
-        $("#sentence1").html(trio.sentence1.replace("$@$", blank));
-        $("#sentence2").html(trio.sentence2.replace("$@$", blank));
-        $("#sentence3").html(trio.sentence3.replace("$@$", blank));
+        var blank = "<span class='blank'></span>";
+        $("#sentences li").html(function() {
+          return trio[this.id].replace("$@$", blank);
+        });
         $("#trio-id").html(trio.id);
 
         var sentencesArr = [trio.sentence1, trio.sentence2, trio.sentence3];
@@ -18,7 +18,7 @@
     }
 
     function fillBlanks(text) {
-        $("#sentences li .blank").text("_" + text + "_");
+        $("#sentences li .blank").text(text);
     }
 
     $(document).ready(function() {

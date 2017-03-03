@@ -7850,4 +7850,10 @@ body {
   animation: flip 0.6s;
 }
 
+.blank {
+  border-bottom: 1px solid;
+  padding: 0 1em;
+  margin: 0 0.3em;
+}
+
 /*# sourceMappingURL=app.css.map */
