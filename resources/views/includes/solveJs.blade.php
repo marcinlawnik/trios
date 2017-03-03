@@ -44,6 +44,7 @@
         $("#check-button").on("click", function (e) {
             e.preventDefault();
             var trio_id = parseInt($("#trio-id").text());
+            $(".panel").removeClass("wrong");
 
             //IF the button was already green, load next trio
             if (checkButtonState == 2) {
@@ -86,6 +87,7 @@
                     checkButtonState = 2;
                 } else {
                     //ELSE if answer is not correct, change button to red and change text to "try again"
+                    $(".panel").addClass("wrong");
                     $("#check-button")
                         .removeClass("btn-primary")
                         .addClass("btn-danger")
@@ -99,6 +101,7 @@
         $("#idk-button").click(function (e) {
             e.preventDefault();
             var trio_id = $("#trio-id").text();
+            $(".panel").removeClass("wrong");
 
             if(idkButtonState == 0) {
                 //jest napis I don't know
