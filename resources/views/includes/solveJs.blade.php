@@ -132,7 +132,7 @@
                     loadTrio(trio);
                 });
                 //reset idk button state
-                $("#idk-button").text("I don't know.");
+                $("#idk-button").text("I don't know");
                 idkButtonState = 0;
             }
         });
