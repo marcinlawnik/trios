@@ -3,12 +3,21 @@
     //Function to load new trio
     //This function fills out the trio screen
     //Extracted to avoid repetition
-    function loadTrio(trio) {
+    function loadTrio(trio, flip) {
+        if (flip) {
+            $(".panel").addClass("flip");
+            setTimeout(function() {
+                $(".panel").removeClass("flip");
+            }, 600);
+        }
+
         var blank = "<span class='blank'></span>";
-        $("#sentences li").html(function() {
-          return trio[this.id].replace("$@$", blank);
-        });
-        $("#trio-id").html(trio.id);
+        setTimeout(function() {
+            $("#sentences li").html(function() {
+                return trio[this.id].replace("$@$", blank);
+            });
+            $("#trio-id").html(trio.id);
+        }, flip ? 300 : 0);
 
         var sentencesArr = [trio.sentence1, trio.sentence2, trio.sentence3];
         var sentences = encodeURIComponent(sentencesArr.join("\r\n"));
@@ -35,7 +44,7 @@
         //On first load fetch a random trio
         $.getJSON("/api/solve", function(trio) {
             //Fill the page
-            loadTrio(trio);
+            loadTrio(trio, false);
         }).fail(function() {
             alert("We're having some trouble fetching a new Trio for you. :< Please try again.");
         });
@@ -51,7 +60,7 @@
                 //Make JSON request
                 $.getJSON("/api/solve", function(trio) {
                     //Fill the page
-                    loadTrio(trio);
+                    loadTrio(trio, true);
                 });
                 $("#check-button")
                     .removeClass("btn-success")
@@ -132,7 +141,7 @@
                 //Make JSON request
                 $.getJSON("/api/solve", function(trio) {
                     //Fill the page
-                    loadTrio(trio);
+                    loadTrio(trio, true);
                 });
                 //reset idk button state
                 $("#idk-button").text("I don't know");
