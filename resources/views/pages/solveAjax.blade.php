@@ -9,7 +9,7 @@
                 </div>
                 <div class="panel-body">
                     <div id = "alert_placeholder"></div>
-                    <ul>
+                    <ul id="sentences">
                         <li id="sentence1"></li>
                         <li id="sentence2"></li>
                         <li id="sentence3"></li>
@@ -24,8 +24,7 @@
                             </div>
                             <div class="form-group text-center">
                                 <button class="btn btn-primary" type="submit" id="check-button">Check</button>
-                                <a id="idk-button" href="#"
-                                   class="btn btn-default" type="submit">I don't know</a>
+                                <button class="btn btn-default" type="button" id="idk-button">I don't know</button>
                                 <a target="_blank" class="report" data-href="https://github.com/AKAI-TRIOS/trios/issues/new?title=_trioID_&labels=content&body=_Sentences_">Report a mistake</a>
                             </div>
                         </fieldset>
