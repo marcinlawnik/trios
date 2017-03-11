@@ -27,6 +27,7 @@ class SolveTest extends DuskTestCase
             $browser->type('#answer', $answer);
             //Click check
             $browser->click('#check-button');
+            sleep(1);
             //See if button changed
             $browser->assertSeeIn('#check-button', 'Correct, next trio');
             //Click again
