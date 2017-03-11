@@ -11,6 +11,6 @@
         @include('includes.footer')
     </div>
 @include('includes.js')
-@yield('afterjs')
+@stack('afterjs')
 </body>
 </html>

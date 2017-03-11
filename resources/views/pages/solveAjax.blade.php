@@ -34,6 +34,6 @@
         </div>
     </div>
 @endsection
-@section('afterjs')
+@push('afterjs')
     @include('includes.solveJs')
-@endsection
+@endpush

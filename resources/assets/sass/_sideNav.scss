@@ -9,13 +9,37 @@ body {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 101; /* Stay on top */
   top: 0;
   left: 0;
   background-color: #111; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
-  transition: .5s; /* 0.5 second transition effect to slide in the sidenav */
+  transition: transform .5s; /* 0.5 second transition effect to slide in the sidenav */
+  width: 250px;
+  //
+  transform: translateX(-100%);
+
+  &.open {
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.8);
+      transform: translateX(0);
+      & + .overlay {
+          right: 0;
+          bottom: 0;
+          opacity: 0.6;
+      }
+  }
+}
+
+.overlay {
+    background: #000;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    cursor: pointer;
+    transition: opacity .3s;
 }
 
 /* The navigation menu links */
@@ -34,7 +58,7 @@ body {
 }
 
 /* Position and style the close button (top right corner) */
-.sidenav .closebtn {
+.sidenav .close-menu {
   position: absolute;
   top: 0;
   right: 25px;
@@ -53,7 +77,8 @@ body {
   .sidenav a {font-size: 18px;}
 }
 
-#open-menu {
+.open-menu {
   font-size: 20px;
   margin-bottom: 0 !important;
+  cursor: pointer;
 }
