@@ -23,4 +23,4 @@ $(function() {
     </nav>
 </div>
 <div class="overlay close-menu"></div>
-<span class="glyphicon glyphicon-menu-hamburger open-menu"></span>
+<a href="#" class="open-menu"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
