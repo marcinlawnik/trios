@@ -16,9 +16,11 @@ $(function() {
 
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="close-menu">&times;</a>
-    <a href="{{ url('/login') }}">Login</a>
-    <a href="https://github.com/AKAI-TRIOS/trios">Source Code</a>
-    <a href="https://www.facebook.com/akai.pp/">Contact</a>
+    <nav class="menu">
+        <a href="{{ url('/login') }}">Login</a>
+        <a href="https://github.com/AKAI-TRIOS/trios">Source Code</a>
+        <a href="https://www.facebook.com/akai.pp/">Contact</a>
+    </nav>
 </div>
 <div class="overlay close-menu"></div>
 <span class="glyphicon glyphicon-menu-hamburger open-menu"></span>

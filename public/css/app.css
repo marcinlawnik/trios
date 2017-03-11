@@ -7926,7 +7926,7 @@ body {
 }
 
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover, .sidenav a:focus {
+.sidenav .menu a:hover, .sidenav .menu a:focus {
   color: #f1f1f1;
   background: #222;
 }
@@ -7938,6 +7938,10 @@ body {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+}
+
+.sidenav .close-menu:hover, .sidenav .close-menu:focus {
+  color: #f1f1f1;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
