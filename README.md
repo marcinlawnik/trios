@@ -55,7 +55,9 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Running the tests
 
-W tej chwili nie ma testów, ale będą.
+Testy przeglądarkowe
+
+`php artisan dusk`
 
 ### Test stylu kodu
 
@@ -83,6 +85,11 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 * **Marcin Ławniczak** - *rozpoczęcie projektu* - [marcinlawnik](https://github.com/marcinlawnik)
+* **Mikołaj Rozwadowski** - *frontend & backend* - [hejmsdz](https://github.com/hejmsdz)
+* **Denis Knop** - *frontend & backend* - [knopers666](https://github.com/knopers666)
+* **Michał Dolata** - *backend* - [MichalDolata](https://github.com/MichalDolata)
+* **Mateusz Stempniewicz** - *frontend & backend* - [Mateusz-Stempniewicz](https://github.com/Mateusz-Stempniewicz)
+* **Zofia Dobrowolska** - *backend & design* - [zofiadob](https://github.com/zofiadob)
 
 See also the list of [contributors](https://github.com/AKAI-TRIOS/trios/graphs/contributors) who participated in this project.
 
@@ -92,6 +99,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* **Zofia Dobrowolska** - *Super logo*
+
