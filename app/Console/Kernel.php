@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         Commands\ExportJson::class,
         Commands\ImportJson::class,
         Commands\TruncateTrios::class,
+        Commands\CheckTrios::class
     ];
 
     /**
