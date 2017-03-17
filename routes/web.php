@@ -40,7 +40,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::group(['prefix' => 'test'], function (){
         Route::get('email', function (){
-
+            Mail::to('marcin@lawniczak.me')->sendNow(new \App\Mail\Test());
         });
     });
 
