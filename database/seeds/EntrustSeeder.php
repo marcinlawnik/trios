@@ -44,59 +44,24 @@ class EntrustSeeder extends Seeder
             'display_name' => 'Moderator',
             'description' => 'Mange trios',
         ));
+
         //trio permission
-        $create_trio = \App\Permission::create(array(
-            'name' => 'trio.create',
-            'display_name' => 'Trio create',
-            'description' => 'Create Trio'
-        ));
-
-        $update_trio = \App\Permission::create(array(
-            'name' => 'trio.edit',
-            'display_name' => 'Trio edit',
-            'descreption' => 'Edit exisiting trio'
-        ));
-
-        $delete_trop = \App\Permission::create(array(
-            'name' => 'trio.delete',
-            'display_name' => 'Trio remove',
-            'descreption' => 'Delete exisiting trio'
-        ));
-
-        $view_trio = \App\Permission::create(array(
-            'name' => 'trio.view',
-            'display_name' => 'Trios view',
-            'descreption' => 'View all trios'
+        $manage_trio = \App\Permission::create(array(
+            'name' => 'trio.manage',
+            'display_name' => 'Manage trios',
+            'description' => 'Creating, updating and deleting trios'
         ));
 
         //user management permission
-        $create_user = \App\Permission::create(array(
-            'name' => 'user.create',
-            'display_name' => 'User create',
-            'description' => 'Create user'
+        $manage_user = \App\Permission::create(array(
+            'name' => 'user.manage',
+            'display_name' => 'Manage users',
+            'description' => 'Creating, updating and deleting user accounts'
         ));
 
-        $update_user = \App\Permission::create(array(
-            'name' => 'user.edit',
-            'display_name' => 'User edit',
-            'descreption' => 'Edit exisiting user'
-        ));
 
-        $delete_user = \App\Permission::create(array(
-            'name' => 'user.delete',
-            'display_name' => 'Delete user',
-            'descreption' => 'Delete user'
-        ));
-
-        $view_user = \App\Permission::create(array(
-            'name' => 'user.view',
-            'display_name' => 'Users view',
-            'descreption' => 'View all users'
-        ));
-        
-
-        $admin->attachPermission(array($view_trio, $create_trio, $delete_trop, $update_trio, $create_user, $delete_user, $update_user, $view_user));
-        $mod->attachPermission(array($view_trio, $create_trio, $delete_trop, $update_trio));
+        $admin->attachPermission(array($manage_trio, $manage_user));
+        $mod->attachPermission(array($manage_trio));
 
         $user_admin->attachRole($admin);
         $user_mod->attachRole($mod);
