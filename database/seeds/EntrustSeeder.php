@@ -66,8 +66,8 @@ class EntrustSeeder extends Seeder
         ));
 
 
-        $admin->attachPermission(array($stats, $manage_trio, $manage_user));
-        $mod->attachPermission(array($stats, $manage_trio));
+        $admin->attachPermissions([$stats, $manage_trio, $manage_user]);
+        $mod->attachPermissions([$stats, $manage_trio]);
 
         $user_admin->attachRole($admin);
         $user_mod->attachRole($mod);
