@@ -33,10 +33,9 @@ Route::get('/', 'HomeController@index');
 Route::get('user/{user}', 'UserController@show');
 
 // Admin panel routes
-Route::group(['prefix' => 'admin'], function () {
-
-    Route::get('stats', 'StatsController@index');
-    Route::resource('trios', 'TriosController');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::get('stats', 'StatsController@index', ['middleware' => ['permission:stats']]);
+    Route::resource('trios', 'TriosController', ['middleware' => ['permission:trio.manage']]);
 
     Route::group(['prefix' => 'test'], function (){
         Route::get('email', function (){
@@ -50,7 +49,6 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/solve', function () {
     return view('pages.solveAjax');
 });
-
 
 // API routes
 Route::group(['prefix' => 'api'], function () {
