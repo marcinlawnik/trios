@@ -36,6 +36,13 @@ Route::get('user/{user}', 'UserController@show');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('stats', 'StatsController@index', ['middleware' => ['permission:stats']]);
     Route::resource('trios', 'TriosController', ['middleware' => ['permission:trio.manage']]);
+
+    Route::group(['prefix' => 'test'], function (){
+        Route::get('email', function (){
+            Mail::to('marcin@lawniczak.me')->sendNow(new \App\Mail\Test());
+        });
+    });
+
 });
 
 //New routes using API and AJAX

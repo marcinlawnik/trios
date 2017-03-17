@@ -7713,7 +7713,7 @@ body {
 }
 
 @media screen and (min-width: 500px) {
-  .btn {
+  .btn-big {
     width: 450px;
   }
 }
