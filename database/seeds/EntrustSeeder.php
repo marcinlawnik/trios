@@ -52,6 +52,12 @@ class EntrustSeeder extends Seeder
             'description' => 'Creating, updating and deleting trios'
         ));
 
+        $stats = \App\Permission::create(array(
+            'name' => 'stats',
+            'display_name' => 'Stats',
+            'description' => 'Displaying global statistics about trio completion'
+        ));
+
         //user management permission
         $manage_user = \App\Permission::create(array(
             'name' => 'user.manage',
@@ -60,8 +66,8 @@ class EntrustSeeder extends Seeder
         ));
 
 
-        $admin->attachPermission(array($manage_trio, $manage_user));
-        $mod->attachPermission(array($manage_trio));
+        $admin->attachPermission(array($stats, $manage_trio, $manage_user));
+        $mod->attachPermission(array($stats, $manage_trio));
 
         $user_admin->attachRole($admin);
         $user_mod->attachRole($mod);
