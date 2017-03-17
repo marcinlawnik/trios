@@ -19,18 +19,6 @@ class EntrustSeeder extends Seeder
     public function run()
     {
 
-        $user_admin = User::create([
-            'name' => 'admin',
-            'email' => 'something@something.com',
-            'password' => bcrypt('qwerty'),
-        ]);
-
-        $user_mod = User::create([
-            'name' => 'moderator_przemek',
-            'email' => 'something22@xddd.com',
-            'password' => bcrypt('qwerty'),
-        ]);
-
         //create a role of admin
         $admin = Role::create([
             'name' => 'admin',
@@ -69,7 +57,5 @@ class EntrustSeeder extends Seeder
         $admin->attachPermissions([$stats, $manage_trio, $manage_user]);
         $mod->attachPermissions([$stats, $manage_trio]);
 
-        $user_admin->attachRole($admin);
-        $user_mod->attachRole($mod);
     }
 }
