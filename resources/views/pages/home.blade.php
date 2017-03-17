@@ -14,7 +14,9 @@
           Have fun!
       </p>
       <a href="{{ url('/solve') }}" class="btn btn-big btn-success btn--home text-uppercase">Play</a>
-      <a href="{{ url('/login') }}" class="btn btn-big btn--home btn--login text-uppercase">Login</a>
+      @if(!Auth::check())
+            <a href="{{ url('/login') }}" class="btn btn-big btn--home btn--login text-uppercase">Login</a>
+      @endif
     </div>
     </section>
 @endsection
