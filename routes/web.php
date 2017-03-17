@@ -38,6 +38,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('stats', 'StatsController@index');
     Route::resource('trios', 'TriosController');
 
+    Route::group(['prefix' => 'test'], function (){
+        Route::get('email', function (){
+
+        });
+    });
+
 });
 
 //New routes using API and AJAX
