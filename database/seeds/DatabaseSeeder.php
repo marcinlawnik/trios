@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        if ($this->app->environment() !== 'production') {
+        if (App::environment() !== 'production') {
             $this->call(TriosDevTableSeeder::class);
         }
         $this->call(EntrustSeeder::class);
