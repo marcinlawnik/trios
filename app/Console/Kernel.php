@@ -16,7 +16,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\ImportTrios::class,
         Commands\ExportJson::class,
-        Commands\ImportJson::class
+        Commands\ImportJson::class,
+        Commands\CheckTrios::class
     ];
 
     /**
