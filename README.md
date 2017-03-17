@@ -1,6 +1,6 @@
 # AKAI-TRIOS (nazwa robocza)
 
-Aplikacja internetowa 
+Aplikacja internetowa
 
 ## Getting Started
 
@@ -35,6 +35,22 @@ PHP
 MySQL
 ```
 
+### Ręczne przypisywanie uprawnień
+
+Aby dostać się do panelu administratora nie wystarczy się zalogować,
+potrzebne są też odpowienie uprawnienia. Dopóki nie dodamy do panelu
+administracyjnego zarządzania użytkownikami, uprawnienia można dodać tak:
+
+```
+php artisan tinker # uruchamia interaktywną konsolę
+
+$user = App\User::find(1); # zamiast jedynki ID użytkownika
+$admin = App\Role::whereName('admin')->first(); # admin - może wszystko
+$mod = App\Role::whereName('mod')->first(); # mod - może zarządzać triosami
+# jeśli rola jest niedostępna, trzeba najpierw uruchomić php artisan db:seed --class EntrustSeeder
+$user->attachRole($admin);
+```
+
 ### Installing
 
 A step by step series of examples that tell you have to get a development env running
@@ -61,7 +77,7 @@ Testy przeglądarkowe
 
 ### Test stylu kodu
 
-Kod w tym repozytorium powinien być zgodny z 
+Kod w tym repozytorium powinien być zgodny z
 [PSR-1](http://www.php-fig.org/psr/psr-1/) oraz
 [PSR-2](http://www.php-fig.org/psr/psr-2/)
 
@@ -80,7 +96,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
@@ -100,4 +116,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * **Zofia Dobrowolska** - *Super logo*
-
