@@ -10,7 +10,8 @@
         "nesbot/carbon": "^1.21",
         "fzaninotto/faker": "^1.6",
         "zizaco/entrust": "5.2.x-dev",
-        "laravel/dusk": "^1.0"
+        "laravel/dusk": "^1.0",
+        "laravel/tinker": "^1.0"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
