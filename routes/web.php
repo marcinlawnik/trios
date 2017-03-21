@@ -15,12 +15,17 @@ use App\Trio;
 use Illuminate\Http\Request;
 
 
-Route::get('/dev/playground', function() {
+// To delete?
+/*Route::get('/dev/playground', function() {
     $trio = Trio::inRandomOrder()->first();
     return view('dev.playground')->with('data', $trio);
-});
+});*/
 
 Auth::routes();
+
+// Socialite routes
+Route::get('/auth/{provider}', 'Auth\SocialController@redirectToProvider');
+Route::get('/auth/{provider}/callback', 'Auth\SocialController@handleProviderCallback');
 
 Route::get('/', 'HomeController@index');
 
@@ -61,5 +66,4 @@ Route::group(['prefix' => 'api'], function () {
         Route::post('{trio}', 'ApiSolveController@postCheck');
 
     });
-
 });
