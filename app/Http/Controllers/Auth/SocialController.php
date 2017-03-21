@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use Socialite;
+use Auth;
 use App\UserSocial;
 use App\User;
 use App\Http\Controllers\Controller;
@@ -55,9 +55,9 @@ class SocialController extends Controller
 
         $firsTimeLoggedIn = false;
 
-        // Check if user used this provider for logging in
+        // Check if user has used this provider for logging in
         if(!isset($userSocial)) {
-            // Check if user have logged in before using other provider or normal auth
+            // Check if user has logged in before using other provider or normal auth
             // by checking his email
             $user = isset($email) ? User::where('email', $email)->first() : null;
             if(!isset($user)) {
@@ -79,9 +79,9 @@ class SocialController extends Controller
 
         $this->login($userSocial, $user);
 
-        // If user didn't provide email, ask him for doing that
+        // If user didn't provide email and they are logging for first time, ask for doing that
         if($firsTimeLoggedIn && $email === null) {
-            return 'Ask for email';
+            return redirect('/auth/email');
         } else {
             return redirect($this->redirectTo);
         }
@@ -98,6 +98,6 @@ class SocialController extends Controller
             $user = $userSocial->user;
         }
 
-        \Auth::login($user);
+        Auth::login($user);
     }
 }

@@ -71,9 +71,9 @@
                                    class="btn btn-default">
                                     Twitter
                                 </a>
-                                <a href="{{ action('Auth\SocialController@redirectToProvider', 'gmail') }}"
+                                <a href="{{ action('Auth\SocialController@redirectToProvider', 'google') }}"
                                    class="btn btn-default">
-                                    GMail
+                                    Google
                                 </a>
                             </div>
                         </div>

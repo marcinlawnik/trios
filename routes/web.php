@@ -24,8 +24,12 @@ use Illuminate\Http\Request;
 Auth::routes();
 
 // Socialite routes
-Route::get('/auth/{provider}', 'Auth\SocialController@redirectToProvider');
-Route::get('/auth/{provider}/callback', 'Auth\SocialController@handleProviderCallback');
+Route::group(['prefix' => 'auth'], function() {
+    Route::get('/email', 'Auth\EmailController@ask');
+    Route::post('/email', 'Auth\EmailController@set');
+    Route::get('/{provider}', 'Auth\SocialController@redirectToProvider');
+    Route::get('/{provider}/callback', 'Auth\SocialController@handleProviderCallback');
+});
 
 Route::get('/', 'HomeController@index');
 
