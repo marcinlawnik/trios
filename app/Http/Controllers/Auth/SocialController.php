@@ -25,6 +25,7 @@ class SocialController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('socialProvider');
     }
 
     /**
@@ -33,11 +34,7 @@ class SocialController extends Controller
      * @param $provider
      */
     public function redirectToProvider($provider) {
-        if(config('services.'.$provider) !== null) {
-            return Socialite::driver($provider)->redirect();
-        } else {
-            abort(404);
-        }
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
@@ -47,10 +44,6 @@ class SocialController extends Controller
      * @return response
      */
     public function handleProviderCallback($provider) {
-        if(config('services.'.$provider) === null) {
-            abort(404);
-        }
-
         $response = Socialite::driver($provider)->user();
 
         $providerId = $response->getId();
