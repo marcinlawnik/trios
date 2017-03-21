@@ -16,7 +16,7 @@ class UserSocial extends Model
     ];
 
     static function getByProvider($provider, $providerId) {
-        static::where('provider', $provider)->where('provider_id', $providerId)->first();
+        return static::where('provider', $provider)->where('provider_id', $providerId)->first();
     }
 
     public function user() {

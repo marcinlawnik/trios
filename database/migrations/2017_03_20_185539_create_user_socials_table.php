@@ -20,7 +20,8 @@ class CreateUserSocialsTable extends Migration
             $table->string('provider_id');
             $table->timestamps();
 
-            $table->index('provider_id');
+            $table->index(['provider', 'provider_id']);
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

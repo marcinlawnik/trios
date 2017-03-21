@@ -50,37 +50,52 @@ class SocialController extends Controller
         $email = $response->getEmail();
         $name = $response->getNickname() !== null ? $response->getNickname() : $response->getName();
 
-        $social = UserSocial::getByProvider($provider, $providerId);
+        $userSocial = UserSocial::getByProvider($provider, $providerId);
         $user = null;
 
-        if(!isset($social)) {
+        $firsTimeLoggedIn = false;
+
+        // Check if user used this provider for logging in
+        if(!isset($userSocial)) {
+            // Check if user have logged in before using other provider or normal auth
+            // by checking his email
             $user = isset($email) ? User::where('email', $email)->first() : null;
-            if(!isset($email)) {
+            if(!isset($user)) {
                 $user = User::create([
                     'name' => $name,
                     'email' => $email,
                     'password' => null
                 ]);
+
+                $firsTimeLoggedIn = true;
             }
-            $social = UserSocial::create([
+            // Add current provider info to db
+            $userSocial = UserSocial::create([
                 'user_id' => $user->id,
                 'provider' => $provider,
                 'provider_id' => $providerId
             ]);
         }
 
-        $this->loginBySocial($social, $user);
+        $this->login($userSocial, $user);
 
-        if($email === null) {
+        // If user didn't provide email, ask him for doing that
+        if($firsTimeLoggedIn && $email === null) {
             return 'Ask for email';
         } else {
             return redirect($this->redirectTo);
         }
     }
 
-    private function loginBySocial($social, $user) {
+    /**
+     * Login using given $user. If it is null, get it from given $userSocial
+     *
+     * @param UserSocial $userSocial
+     * @param User $user
+     */
+    private function login($userSocial, $user) {
         if(!isset($user)) {
-            $user = $social->user;
+            $user = $userSocial->user;
         }
 
         \Auth::login($user);
