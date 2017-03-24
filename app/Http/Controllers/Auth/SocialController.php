@@ -83,7 +83,8 @@ class SocialController extends Controller
         if($firsTimeLoggedIn && $email === null) {
             return redirect('/auth/email');
         } else {
-            return redirect($this->redirectTo);
+            return redirect($this->redirectTo)
+                ->with('message', 'Login successful!');
         }
     }
 
