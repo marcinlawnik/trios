@@ -51,6 +51,34 @@ $mod = App\Role::whereName('mod')->first(); # mod - może zarządzać triosami
 $user->attachRole($admin);
 ```
 
+### Konfiguracja zewnętrznych API (opcjonalne)
+
+Dodaj do pliku `.env` podane poniżej klucze:
+* Facebook
+
+    How to get `<client_id>` and `<client_secret>`: [link](https://blog.damirmiladinov.com/laravel/laravel-5.2-socialite-facebook-login.html)
+    ```
+    FACEBOOK_ID=<client_id>
+    FACEBOOK_SECRET=<client_secret>
+    FACEBOOK_URL=http://localhost:8000/auth/facebook/callback
+    ```
+* Twitter
+
+    How to get `<client_id>` and `<client_secret>`: [link](https://blog.damirmiladinov.com/laravel/laravel-5.2-socialite-twitter-login.html)
+     ```
+    TWITTER_ID=<client_id>
+    TWITTER_SECRET=<client_secret>
+    TWITTER_URL=http://localhost:8000/auth/twitter/callback
+     ```
+* Google
+
+    How to get `<client_id>` and `<client_secret>`: [link](https://blog.damirmiladinov.com/laravel/laravel-5.2-socialite-google-login.html)
+     ```
+    GOOGLE_ID=<client_id>
+    GOOGLE_SECRET=<client_secret>
+    GOOGLE_URL=http://localhost:8000/auth/google/callback
+     ```
+
 ### Installing
 
 A step by step series of examples that tell you have to get a development env running
