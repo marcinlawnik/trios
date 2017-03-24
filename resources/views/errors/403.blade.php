@@ -11,19 +11,28 @@
             }
 
             body {
+                background: #0d1e31;
                 margin: 0;
                 padding: 0;
                 width: 100%;
-                color: #444;
+                color: #eee;
                 display: table;
                 font-weight: 300;
                 font-family: 'Lato', sans-serif;
+                font-size: 10px;
+            }
+
+            @media screen and (min-width: 600px) {
+                body {
+                    font-size: 16px;
+                }
             }
 
             .container {
                 text-align: center;
                 display: table-cell;
                 vertical-align: middle;
+                padding: 0 2em;
             }
 
             .content {
@@ -33,13 +42,13 @@
 
             .code {
                 font-size: 10em;
-                color: #A62639;
+                color: hsla(349, 96%, 48%, 0.6);
                 line-height: .8em;
             }
 
             .title {
                 font-size: 3em;
-                color: #666;
+                color: rgba(255,255,255,.6);
                 margin-bottom: .4em;
                 font-weight: 700;
             }
@@ -55,7 +64,7 @@
                 text-decoration: none;
             }
             a:hover {
-                color: #003aad;
+                color: #578fff;
             }
         </style>
     </head>
