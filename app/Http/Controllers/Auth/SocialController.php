@@ -53,7 +53,7 @@ class SocialController extends Controller
         $userSocial = UserSocial::getByProvider($provider, $providerId);
         $user = null;
 
-        $firsTimeLoggedIn = false;
+        $firstTimeLoggedIn = false;
 
         // Check if user has used this provider for logging in
         if(!isset($userSocial)) {
@@ -67,7 +67,7 @@ class SocialController extends Controller
                     'password' => null
                 ]);
 
-                $firsTimeLoggedIn = true;
+                $firstTimeLoggedIn = true;
             }
             // Add current provider info to db
             $userSocial = UserSocial::create([
@@ -80,7 +80,7 @@ class SocialController extends Controller
         $this->login($userSocial, $user);
 
         // If user didn't provide email and they are logging for first time, ask for doing that
-        if($firsTimeLoggedIn && $email === null) {
+        if($firstTimeLoggedIn && $email === null) {
             return redirect('/auth/email');
         } else {
             return redirect($this->redirectTo)
