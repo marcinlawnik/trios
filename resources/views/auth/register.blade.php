@@ -60,11 +60,30 @@
                             </div>
                         </div>
 
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                Log in using:
+                                <a href="{{ action('Auth\SocialController@redirectToProvider', 'facebook') }}"
+                                   class="btn btn-default">
+                                    Facebook
+                                </a>
+                                <a href="{{ action('Auth\SocialController@redirectToProvider', 'twitter') }}"
+                                   class="btn btn-default">
+                                    Twitter
+                                </a>
+                                <a href="{{ action('Auth\SocialController@redirectToProvider', 'gmail') }}"
+                                   class="btn btn-default">
+                                    GMail
+                                </a>
                             </div>
                         </div>
                     </form>

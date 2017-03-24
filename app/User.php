@@ -38,4 +38,8 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\UserTrioAttempt')->orderBy('trio_id');
     }
+
+    public function userSocials() {
+        return $this->hasMany('App\UserSocial');
+    }
 }

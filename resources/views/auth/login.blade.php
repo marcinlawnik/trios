@@ -59,6 +59,24 @@
                                 </a>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                Log in using:
+                                <a href="{{ action('Auth\SocialController@redirectToProvider', 'facebook') }}"
+                                   class="btn btn-default">
+                                        Facebook
+                                </a>
+                                <a href="{{ action('Auth\SocialController@redirectToProvider', 'twitter') }}"
+                                   class="btn btn-default">
+                                    Twitter
+                                </a>
+                                <a href="{{ action('Auth\SocialController@redirectToProvider', 'google') }}"
+                                   class="btn btn-default">
+                                    Google
+                                </a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
