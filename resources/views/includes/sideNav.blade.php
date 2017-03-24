@@ -17,9 +17,26 @@ $(function() {
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="close-menu">&times;</a>
     <nav class="menu">
-        <a href="{{ url('/login') }}">Login</a>
+        @if(!Auth::check())
+            <a href="{{ url('/login') }}">Login</a>
+            <a href="{{ url('/register') }}">Register</a>
+        @else
+            <a href="{{ action('UserController@show', Auth::id()) }}">Your statistics</a>
+            @if(Entrust::hasRole(['admin', 'mod']))
+                <a href="{{ action('AdminController@index') }}">Admin panel</a>
+            @endif
+        @endif
         <a href="https://github.com/AKAI-TRIOS/trios">Source Code</a>
         <a href="https://www.facebook.com/akai.pp/">Contact</a>
+        @if(Auth::check())
+            <a href="{{ url('/logout') }}"
+                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    Logout</a>
+            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
+        @endif
     </nav>
 </div>
 <div class="overlay close-menu"></div>

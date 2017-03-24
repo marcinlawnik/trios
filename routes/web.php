@@ -33,15 +33,16 @@ Route::get('/', 'HomeController@index');
 Route::get('user/{user}', 'UserController@show');
 
 // Admin panel routes
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::get('stats', 'StatsController@index', ['middleware' => ['permission:stats']]);
-    Route::resource('trios', 'TriosController', ['middleware' => ['permission:trio.manage']]);
+Route::group(['prefix' => 'admin', 'middleware' => 'role:admin|mod'], function () {
+    Route::get('/', 'AdminController@index');
+    Route::get('/stats', 'StatsController@index', ['middleware' => ['permission:stats']]);
+    Route::resource('/trios', 'TriosController', ['middleware' => ['permission:trio.manage']]);
 
-    Route::group(['prefix' => 'test'], function (){
+    /*Route::group(['prefix' => 'test'], function (){
         Route::get('email', function (){
             Mail::to('marcin@lawniczak.me')->sendNow(new \App\Mail\Test());
         });
-    });
+    });*/
 
 });
 

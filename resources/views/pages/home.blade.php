@@ -15,7 +15,10 @@
       </p>
       <a href="{{ url('/solve') }}" class="btn btn-big btn-success btn--home text-uppercase">Play</a>
       @if(!Auth::check())
-            <a href="{{ url('/login') }}" class="btn btn-big btn--home btn--login text-uppercase">Login</a>
+            <a href="{{ url('/register') }}" class="btn btn-big btn--home btn--login text-uppercase">Register</a>
+            <a class="btn btn-link center-block" href="{{ url('/login') }}">
+                Already have an account? Sign in
+            </a>
       @endif
     </div>
     </section>
