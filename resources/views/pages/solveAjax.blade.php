@@ -3,6 +3,11 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 
+            {{-- Info about logged in user --}}
+            @if(Auth::check())
+                <p id="user-info-header">You are logged in as {{ Auth::getUser()->name }}</p>
+            @endif
+
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Trio <span id="trio-id"></span>

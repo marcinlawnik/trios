@@ -7856,6 +7856,10 @@ body {
   margin: 0 0.3em;
 }
 
+#user-info-header {
+  text-align: right;
+}
+
 /* https://www.w3schools.com/howto/howto_js_sidenav.asp */
 /* The side navigation menu */
 body {
