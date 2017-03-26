@@ -44,6 +44,10 @@ Route::get('user/{user}', 'UserController@show');
 // Admin panel routes
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('stats', 'StatsController@index', ['middleware' => ['permission:stats']]);
+
+    Route::get('reports', 'ReportController@index');
+    Route::delete('reports/{report}', 'ReportController@destroy');
+
     Route::resource('trios', 'TriosController', ['middleware' => ['permission:trio.manage']]);
 
     Route::group(['prefix' => 'test'], function (){
@@ -59,15 +63,3 @@ Route::get('/solve', function () {
     return view('pages.solveAjax');
 });
 
-// API routes
-Route::group(['prefix' => 'api'], function () {
-
-    Route::group(['prefix' => 'solve'], function () {
-
-        Route::get('{trio}', 'ApiSolveController@getTrio');
-        Route::get('{trio}/answer', 'ApiSolveController@getTrioAnswer');
-        Route::get('/', 'ApiSolveController@getRandomTrio');
-        Route::post('{trio}', 'ApiSolveController@postCheck');
-
-    });
-});
