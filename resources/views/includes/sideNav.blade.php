@@ -26,7 +26,7 @@ $(function() {
                 <a href="{{ action('AdminController@index') }}">Admin panel</a>
             @endif
         @endif
-        <a href="https://github.com/AKAI-TRIOS/trios">Source Code</a>
+        <a href="https://github.com/AKAI-TRIOS/trios">Source code</a>
         <a href="https://www.facebook.com/akai.pp/">Contact</a>
         @if(Auth::check())
             <a href="{{ url('/logout') }}"
