@@ -76,10 +76,10 @@
                                    class="btn btn-default">
                                     Facebook
                                 </a>
-                                <a href="{{ action('Auth\SocialController@redirectToProvider', 'twitter') }}"
-                                   class="btn btn-default">
-                                    Twitter
-                                </a>
+                                {{--<a href="{{ action('Auth\SocialController@redirectToProvider', 'twitter') }}"--}}
+                                   {{--class="btn btn-default">--}}
+                                    {{--Twitter--}}
+                                {{--</a>--}}
                                 <a href="{{ action('Auth\SocialController@redirectToProvider', 'google') }}"
                                    class="btn btn-default">
                                     Google
