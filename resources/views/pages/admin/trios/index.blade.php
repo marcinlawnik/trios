@@ -2,6 +2,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
+            <a href="{{ action('TriosController@create') }}" class="btn btn-primary">Add Trio</a>
             <table class="table table-striped table-responsive">
                 <thead>
                 <tr>
