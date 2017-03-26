@@ -169,7 +169,6 @@ return [
          * Package Service Providers...
          */
 
-        Laravel\Dusk\DuskServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         //
 
