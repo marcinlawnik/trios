@@ -45,9 +45,9 @@ Route::get('user/{user}', 'UserController@show');
 Route::group(['prefix' => 'admin', 'middleware' => 'role:admin|mod'], function () {
     Route::get('/', 'AdminController@index');
 
-    Route::get('/stats', 'StatsController@index', ['middleware' => ['permission:stats']]);
+    Route::get('/stats', 'StatsController@index');
 
-    Route::resource('/trios', 'TriosController', ['middleware' => ['permission:trio.manage']]);
+    Route::resource('/trios', 'TriosController');
 
     Route::get('reports', 'ReportController@index');
     Route::delete('reports/{report}', 'ReportController@destroy');
