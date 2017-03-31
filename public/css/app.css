@@ -7995,7 +7995,7 @@ body {
   }
 }
 
-.message .message {
+.message {
   opacity: 1;
   -webkit-animation: fadeOut 6s;
   animation: fadeOut 6s;
