@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('includes.sideNav')
     <section class="home">
     <div class="home--logo">
     @include('includes.trio-logo')

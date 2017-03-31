@@ -17,6 +17,9 @@ $(function() {
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="close-menu">&times;</a>
     <nav class="menu">
+        @if(!Request::is('/'))
+            <a href="{{ url('/') }}">Home</a>
+        @endif
         @if(!Auth::check())
             <a href="{{ url('/login') }}">Login</a>
             <a href="{{ url('/register') }}">Register</a>

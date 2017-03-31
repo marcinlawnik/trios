@@ -6,6 +6,7 @@
 </head>
 <body>
     <div class="container">
+        @include('includes.sideNav')
         @include('includes.messages')
         @yield('content')
         @include('includes.footer')
