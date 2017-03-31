@@ -9,6 +9,6 @@
     }).parent().addClass('active');
     //Fade out messages
     setTimeout(function(){
-        $(".message").fadeOut("slow");
+        $(".message").fadeOut(3000);
     },5000)
 </script>
