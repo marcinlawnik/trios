@@ -1,0 +1,19 @@
+.message {
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .message {
+    opacity: 1;
+    -webkit-animation: fadeOut 6s;
+    animation: fadeOut 6s;
+  }
+}
