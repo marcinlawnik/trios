@@ -8,7 +8,7 @@
 
     <div>
       <p class="center-block text-center home--info">
-          Trios is a simple exercise to test your English skills.<br>
+          Trios are simple exercises to test your English skills.<br>
           You should put in a single word that fits all three sentences.<br>
           Have fun!
       </p>
