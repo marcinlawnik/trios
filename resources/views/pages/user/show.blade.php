@@ -10,10 +10,10 @@
                 <div class="panel-body">
                     <ul>
                         <li>User ID: {{ $user->id }}</li>
-                        <li>Attempted trios: {{ count($user->triosAttempts) }}</li>
+                        <li>Attempted trios: {{ $user->attemptedTrios() }}</li>
                         <li>Total attempts: {{ $user->triosAttempts->sum('attempts') }}</li>
                         <li>Attempts per trio: {{ round($user->triosAttempts->avg('attempts'), 2) }}</li>
-                        <li>Solved: {{ $user->triosAttempts->sum('solved') }}</li>
+                        <li>Solved: {{ $user->solvedTrios() }}</li>
                     </ul>
                 </div>
             </div>

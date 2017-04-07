@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Trio;
 use App\WrongAnswer;
 use App\UserTrioAttempt;
+use Illuminate\Support\Facades\Auth;
 
 class ApiSolveController extends Controller
 {
@@ -65,6 +66,14 @@ class ApiSolveController extends Controller
                 // Zapisujemy błędną odpowiedź
                 $this->saveWrongAnswer($trio->id, $answer);
             }
+        }
+
+        // Dodaj statystyki do json jeśli użytkownik jest zalogowany
+        if(Auth::check()) {
+            $response['stats'] = [
+                'solved' => $request->user()->solvedTrios(),
+                'attempted' => $request->user()->attemptedTrios()
+            ];
         }
 
         //Zwracamy JSON

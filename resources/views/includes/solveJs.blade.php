@@ -28,6 +28,11 @@
         $("#sentences li .blank").text(text);
     }
 
+    function updateStats(stats) {
+        $("#trios-solved").text(stats.solved);
+        $("#trios-attempted").text(stats.attempted);
+    }
+
     $(document).ready(function() {
         // 0 - white, check
         // 1 - red, try again
@@ -100,6 +105,10 @@
                         .addClass("btn-danger")
                         .html("Try again");
                     checkButtonState = 1;
+                }
+
+                if(ret.stats !== undefined) {
+                    updateStats(ret.stats);
                 }
             });
         });

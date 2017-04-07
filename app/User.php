@@ -36,10 +36,23 @@ class User extends Authenticatable
      */
     public function triosAttempts()
     {
-        return $this->hasMany('App\UserTrioAttempt')->orderBy('trio_id');
+        return $this->hasMany('App\UserTrioAttempt');
     }
 
     public function userSocials() {
         return $this->hasMany('App\UserSocial');
     }
+
+    // user stats
+
+    public function solvedTrios()
+    {
+        return $this->triosAttempts->sum('solved');
+    }
+
+    public function attemptedTrios()
+    {
+        return count($this->triosAttempts) - $this->triosAttempts->sum('solved');
+    }
+
 }
