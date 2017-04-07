@@ -21,6 +21,7 @@
 
         var sentencesArr = [trio.sentence1, trio.sentence2, trio.sentence3];
         var sentences = encodeURIComponent(sentencesArr.join("\r\n"));
+        location.hash = "#" + trio.id;
     }
 
     function fillBlanks(text) {
@@ -37,9 +38,10 @@
         // 1 - red, next trio
         var idkButtonState = 0;
 
+        var hash = location.hash.slice(1);
         //AJAX magic
         //On first load fetch a random trio
-        $.getJSON("/api/solve", function(trio) {
+        $.getJSON("/api/solve/"+hash, function(trio) {
             //Fill the page
             loadTrio(trio, false);
         }).fail(function() {
@@ -77,8 +79,7 @@
             $.post("/api/solve/" + trio_id, {
                 answer: answer,
                 _token: $("meta[name='csrf-token']").attr("content")
-            }).done(function (data) {
-                var ret = JSON.parse(data);
+            }).done(function (ret) {
                 if(ret.answer.isCorrect == true) {
                     //IF answer is correct, change button to green and change text to "Next trio"
                     $("#check-button")
@@ -126,7 +127,7 @@
                 $("#answer").prop("disabled", true).val("");
                 $("#check-button").prop("disabled", true);
                 //zmieniamy button na next trio
-                $("#idk-button").text("Next trio.")
+                $("#idk-button").text("Next trio.");
                 idkButtonState = 1;
             } else if (idkButtonState == 1) {
                 // 1 - red, next trio
