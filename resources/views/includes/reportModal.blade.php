@@ -1,6 +1,5 @@
 <!-- Button trigger modal -->
-<a class="report" data-href="https://github.com/AKAI-TRIOS/trios/issues/new?title=_trioID_&labels=content&body=_Sentences_"
-   data-toggle="modal" data-target="#reportModal">Report a mistake</a>
+<a class="report" data-toggle="modal" data-target="#reportModal">Report a mistake</a>
 
 <!-- Modal -->
 <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModal">
