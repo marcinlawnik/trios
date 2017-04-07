@@ -44,6 +44,7 @@
             </div>
         </div>
     </div>
+    @include('includes.js')
 @endsection
 @push('afterjs')
 @endpush
