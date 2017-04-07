@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-    @include('includes.js')
 @endsection
 @push('afterjs')
+<script src="{{ asset('js/all.js') }}"></script>
 @endpush
