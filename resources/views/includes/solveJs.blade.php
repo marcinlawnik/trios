@@ -21,6 +21,7 @@
 
         var sentencesArr = [trio.sentence1, trio.sentence2, trio.sentence3];
         var sentences = encodeURIComponent(sentencesArr.join("\r\n"));
+        location.hash = "#" + trio.id;
     }
 
     function fillBlanks(text) {
@@ -78,8 +79,7 @@
             $.post("/api/solve/" + trio_id, {
                 answer: answer,
                 _token: $("meta[name='csrf-token']").attr("content")
-            }).done(function (data) {
-                var ret = JSON.parse(data);
+            }).done(function (ret) {
                 if(ret.answer.isCorrect == true) {
                     //IF answer is correct, change button to green and change text to "Next trio"
                     $("#check-button")
@@ -122,7 +122,7 @@
                 $("#answer").prop("disabled", true).val("");
                 $("#check-button").prop("disabled", true);
                 //zmieniamy button na next trio
-                $("#idk-button").text("Next trio.")
+                $("#idk-button").text("Next trio.");
                 idkButtonState = 1;
             } else if (idkButtonState == 1) {
                 // 1 - red, next trio
