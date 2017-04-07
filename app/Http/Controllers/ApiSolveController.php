@@ -10,7 +10,7 @@ use App\UserTrioAttempt;
 class ApiSolveController extends Controller
 {
     function getTrio(Trio $trio) {
-        return $trio->toJson();
+        return $trio;
     }
 
     function getTrioAnswer(Trio $trio) {
@@ -19,13 +19,13 @@ class ApiSolveController extends Controller
             "correctAnswer" => $trio->answer
         ];
 
-        return json_encode($return);
+        return $return;
     }
 
     function getRandomTrio() {
         $trio = Trio::inRandomOrder()->first();
 
-        return $trio->toJson();
+        return $trio;
     }
 
     function postCheck(Request $request, Trio $trio) {
@@ -63,7 +63,7 @@ class ApiSolveController extends Controller
 
         //Zwracamy JSON
 
-        return json_encode($response);
+        return $response;
 
     }
 
