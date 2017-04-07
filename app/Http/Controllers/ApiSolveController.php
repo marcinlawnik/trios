@@ -40,25 +40,31 @@ class ApiSolveController extends Controller
 
         $answer = $request->input('answer');
 
-        // Czyścimy input
-        // Usuwamy spacje i tabulatory z początku i końca
-        $answer = trim($answer);
-        // Zamieniamy na małe litery
-        $answer = mb_strtolower($answer);
+        //Sprawdzamy czy użytkownik kliknął I don't know
 
-        //Zwracamy obrobioną odpowiedź od użytkownika
-        $response['answer']['attemptedAnswer'] = $answer;
-        $this->updateStats($request->user() ? $request->user()->id : 0, $trio->id, $answer == $trio->answer);
-
-        // Sprawdzamy odpowiedź
-        if($answer == $trio->answer) {
-            // Poprawna
-            $response['answer']['isCorrect'] = true;
-
+        if ($answer == "IDK@@") {
+            $this->updateStats($request->user() ? $request->user()->id : 0, $trio->id, false);
         } else {
-            // Błędna
-            // Zapisujemy błędną odpowiedź
-            $this->saveWrongAnswer($trio->id, $answer);
+            // Czyścimy input
+            // Usuwamy spacje i tabulatory z początku i końca
+            $answer = trim($answer);
+            // Zamieniamy na małe litery
+            $answer = mb_strtolower($answer);
+
+            //Zwracamy obrobioną odpowiedź od użytkownika
+            $response['answer']['attemptedAnswer'] = $answer;
+            $this->updateStats($request->user() ? $request->user()->id : 0, $trio->id, $answer == $trio->answer);
+
+            // Sprawdzamy odpowiedź
+            if($answer == $trio->answer) {
+                // Poprawna
+                $response['answer']['isCorrect'] = true;
+
+            } else {
+                // Błędna
+                // Zapisujemy błędną odpowiedź
+                $this->saveWrongAnswer($trio->id, $answer);
+            }
         }
 
         //Zwracamy JSON
@@ -97,5 +103,9 @@ class ApiSolveController extends Controller
         $wrongAnswer->trio_id = $trio_id;
         $wrongAnswer->answer = $answer;
         $wrongAnswer->save();
+    }
+
+    private function saveIDontKnowClick($trio_id) {
+        $this->saveWrongAnswer($trio_id, 'IDK');
     }
 }

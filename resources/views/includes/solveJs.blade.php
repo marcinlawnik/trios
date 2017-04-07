@@ -103,7 +103,7 @@
             });
         });
 
-        //ON I don't know click or green buton click, load new random trio
+        //ON I don't know click or green buton click, save the click and load new random trio
         $("#idk-button").click(function (e) {
             e.preventDefault();
             var trio_id = $("#trio-id").text();
@@ -111,6 +111,11 @@
 
             if(idkButtonState == 0) {
                 //jest napis I don't know
+                //zapisujemy click na I don't know
+                $.post("/api/solve/" + trio_id, {
+                    answer: 'IDK@@',
+                    _token: $("meta[name='csrf-token']").attr("content")
+                })
                 //wyświetlamy poprawne odp
                 //JSON request
                 $.getJSON( "/api/solve/" + trio_id + "/answer", function(answer) {
