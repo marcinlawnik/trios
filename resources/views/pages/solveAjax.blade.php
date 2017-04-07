@@ -46,5 +46,4 @@
     </div>
 @endsection
 @push('afterjs')
-    @include('includes.solveJs')
 @endpush
