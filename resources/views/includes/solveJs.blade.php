@@ -148,5 +148,19 @@
                 idkButtonState = 0;
             }
         });
+        
+        $("#report-button").on("click", function (e) {
+            var trio_id = $("#trio-id").text(),
+                description = $("#report-description").val();
+
+            $.post("{{ action('ReportController@create') }}", {
+                    trio_id: trio_id,
+                    description: description
+                }).done(function() {
+                    var alert = $('<div class="alert alert-success" role="alert">Your report has been submitted. Thanks for your help!</div>');
+                    $("#report-description").val('');
+                    $(alert).hide().prependTo(".modal-body").fadeIn("slow").delay(3000).fadeOut("slow");
+            });
+        })
     });
 </script>

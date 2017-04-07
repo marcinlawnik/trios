@@ -44,8 +44,13 @@ Route::get('user/{user}', 'UserController@show');
 // Admin panel routes
 Route::group(['prefix' => 'admin', 'middleware' => 'role:admin|mod'], function () {
     Route::get('/', 'AdminController@index');
-    Route::get('/stats', 'StatsController@index', ['middleware' => ['permission:stats']]);
-    Route::resource('/trios', 'TriosController', ['middleware' => ['permission:trio.manage']]);
+
+    Route::get('/stats', 'StatsController@index');
+
+    Route::resource('/trios', 'TriosController');
+
+    Route::get('reports', 'ReportController@index');
+    Route::delete('reports/{report}', 'ReportController@destroy');
 
     /*Route::group(['prefix' => 'test'], function (){
         Route::get('email', function (){

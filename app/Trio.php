@@ -48,4 +48,9 @@ class Trio extends Model
     {
         return $this->hasMany('App\TrioChange');
     }
+
+    public function reports()
+    {
+        return $this->hasMany('App\Report');
+    }
 }

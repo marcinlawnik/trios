@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+// API routes
+Route::group(['prefix' => 'solve'], function () {
+        Route::get('{trio}', 'ApiSolveController@getTrio');
+        Route::get('{trio}/answer', 'ApiSolveController@getTrioAnswer');
+        Route::get('/', 'ApiSolveController@getRandomTrio');
+        Route::post('{trio}', 'ApiSolveController@postCheck');
+});
+
+
+Route::post('/report', 'ReportController@create');
