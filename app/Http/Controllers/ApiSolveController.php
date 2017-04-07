@@ -71,8 +71,8 @@ class ApiSolveController extends Controller
         // Dodaj statystyki do json jeśli użytkownik jest zalogowany
         if(Auth::check()) {
             $response['stats'] = [
-                'solved' => $request->user()->solvedTrios(),
-                'attempted' => $request->user()->attemptedTrios()
+                'solved' => $request->user()->solvedTriosCount(),
+                'attempted' => $request->user()->attemptedTriosCount()
             ];
         }
 

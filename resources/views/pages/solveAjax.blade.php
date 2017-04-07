@@ -7,8 +7,8 @@
             @if(Auth::check())
                 <div id="user-info-header">
                     <p>Your stats:
-                        Solved: <span id="trios-solved">{{ Auth::getUser()->solvedTrios() }}</span> |
-                        Attempted: <span id="trios-attempted">{{ Auth::getUser()->attemptedTrios() }}</span>
+                        Solved: <span id="trios-solved">{{ Auth::getUser()->solvedTriosCount() }}</span> |
+                        Attempted: <span id="trios-attempted">{{ Auth::getUser()->attemptedTriosCount() }}</span>
                     </p>
                     <p class="pull-right">You are logged in as {{ Auth::getUser()->name }}</p>
                 </div>

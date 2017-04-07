@@ -45,14 +45,13 @@ class User extends Authenticatable
 
     // user stats
 
-    public function solvedTrios()
+    public function solvedTriosCount()
     {
         return $this->triosAttempts->sum('solved');
     }
 
-    public function attemptedTrios()
-    {
-        return count($this->triosAttempts) - $this->triosAttempts->sum('solved');
+    public function attemptedTriosCount() {
+        return $this->triosAttempts->count();
     }
 
 }
