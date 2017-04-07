@@ -21,9 +21,6 @@
 
         var sentencesArr = [trio.sentence1, trio.sentence2, trio.sentence3];
         var sentences = encodeURIComponent(sentencesArr.join("\r\n"));
-        $(".report").attr("href", $(".report").data("href")
-            .replace("_trioID_", trio.id)
-            .replace("_Sentences_", sentences));
     }
 
     function fillBlanks(text) {
