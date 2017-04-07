@@ -77,3 +77,8 @@ Route::group(['prefix' => 'api'], function () {
 
     });
 });
+
+//Static routes
+Route::get('about', function () {
+    return view('pages.about');
+});

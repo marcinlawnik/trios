@@ -134,7 +134,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * **Michał Dolata** - *backend* - [MichalDolata](https://github.com/MichalDolata)
 * **Mateusz Stempniewicz** - *frontend & backend* - [Mateusz-Stempniewicz](https://github.com/Mateusz-Stempniewicz)
 * **Zofia Dobrowolska** - *backend & design* - [zofiadob](https://github.com/zofiadob)
-
+* **Rafał Rudol** - *frontend and design* - [rrudol](https://github.com/rrudol)
 See also the list of [contributors](https://github.com/AKAI-TRIOS/trios/graphs/contributors) who participated in this project.
 
 ## License
