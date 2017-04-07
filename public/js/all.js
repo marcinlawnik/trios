@@ -115,7 +115,7 @@ $(document).ready(function() {
             $.post("/api/solve/" + trio_id, {
                 answer: 'IDK@@',
                 _token: $("meta[name='csrf-token']").attr("content")
-            })
+            });
             //wyświetlamy poprawne odp
             //JSON request
             $.getJSON( "/api/solve/" + trio_id + "/answer", function(answer) {
