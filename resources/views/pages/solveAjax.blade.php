@@ -29,7 +29,7 @@
                             </div>
                             <div class="form-group text-center">
                                 <button class="btn btn-big btn-primary" type="submit" id="check-button">Check</button>
-                                <button class="btn btn-big btn-default" type="button" id="idk-button">I don't know</button>
+                                <button class="btn btn-big btn-warning" type="button" id="idk-button">I don't know</button>
                                 @include('includes.reportModal')
                             </div>
                         </fieldset>

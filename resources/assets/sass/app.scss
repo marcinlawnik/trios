@@ -3,10 +3,13 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
 @import "variables";
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "bootstrap";
 
+@import "helpers";
 @import "main";
 @import "home";
 @import "logo";
 @import "solve";
 @import "sideNav";
+@import "trio";

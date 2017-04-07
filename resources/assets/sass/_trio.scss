@@ -1,0 +1,67 @@
+.panel {
+  overflow-y: auto;
+  box-shadow: 0px 10px 10px #e6e6e6;
+  padding-top: 10px;
+  margin: $panel-spacing 0;
+
+  &-heading {
+    margin: $panel-spacing/2 $panel-spacing;
+  }
+
+  &-body {
+    margin: $panel-spacing/2 $panel-spacing;
+
+    fieldset {
+      @extend .row;
+
+      border: 0px;
+    }
+
+    ul {
+      padding-left: $panel-spacing;
+      list-style-type: none;
+
+      li {
+        list-style: none;
+        margin: $panel-spacing/3;
+
+        &:before {
+          content: "-";
+          padding-right: $panel-spacing/3;
+        }
+      }
+
+    }
+
+    .btn {
+      display: inline-block;
+      width: 165px;
+      border: 0px;
+      border-radius: 0;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    .btn-primary {
+      background: #569CFF;
+      color: white;
+    }
+
+    .btn-default {
+      background: #EEEEEE;
+      color: black;
+    }
+
+    .btn-warning {
+      background: #FF763E;
+      color: white;
+    }
+
+    .report {
+      transform: translateY(10px);
+    }
+
+  }
+}
