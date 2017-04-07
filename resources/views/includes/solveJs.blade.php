@@ -37,9 +37,10 @@
         // 1 - red, next trio
         var idkButtonState = 0;
 
+        var hash = location.hash.slice(1);
         //AJAX magic
         //On first load fetch a random trio
-        $.getJSON("/api/solve", function(trio) {
+        $.getJSON("/api/solve/"+hash, function(trio) {
             //Fill the page
             loadTrio(trio, false);
         }).fail(function() {
