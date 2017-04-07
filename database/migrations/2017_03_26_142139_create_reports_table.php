@@ -17,6 +17,7 @@ class CreateReportsTable extends Migration
             $table->increments('id');
             $table->integer('trio_id')->unsigned();
             $table->string('description')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
