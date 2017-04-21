@@ -44,7 +44,12 @@ class SocialController extends Controller
      * @return response
      */
     public function handleProviderCallback($provider) {
-        $response = Socialite::driver($provider)->user();
+        try {
+            $response = Socialite::driver($provider)->user();
+        } catch (\Exception $e) {
+            return redirect('/login')->with('error',
+                "We could not get data from $provider. Please try again");
+        }
 
         $providerId = $response->getId();
         $email = $response->getEmail();
