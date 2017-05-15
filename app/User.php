@@ -54,4 +54,13 @@ class User extends Authenticatable
         return $this->triosAttempts->count();
     }
 
+    public function solvedTriosIds()
+    {
+        return $this->triosAttempts()->select('trio_id')->where('solved', true)->get();
+    }
+
+    public function checkIfSolvedTrio(Trio $trio)
+    {
+        return $this->triosAttempts()->where('trio_id', $trio->id)->sum('solved') > 0 ? true : false;
+    }
 }

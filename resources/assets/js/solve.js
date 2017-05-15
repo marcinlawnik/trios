@@ -2,24 +2,39 @@
 //Function to load new trio
 //This function fills out the trio screen
 //Extracted to avoid repetition
-function loadTrio(trio, flip) {
+function setSentences(trio) {
+    var blank = "<span class='blank'></span>";
+
+    $("#sentences li").html(function() {
+        return trio[this.id].replace("$@$", blank);
+    });
+    $("#trio-id").html(trio.id);
+}
+
+function loadTrio(response, flip) {
+    var trio = response.trio;
+
+    // Show message if user has solved all trios
+    if(trio === null) {
+        $(".panel-body").html("<div class='text-center'><strong>Congratulations!</strong><br>" +
+            "You have solved all trios from our database. " + "Comeback soon for more!</div>");
+    }
+
     if (flip) {
         $(".panel").addClass("flip");
         setTimeout(function() {
             $(".panel").removeClass("flip");
         }, 600);
+
+        setTimeout(function () {
+           setSentences(trio);
+        }, 300);
+    } else {
+        setSentences(trio);
     }
 
-    var blank = "<span class='blank'></span>";
-    setTimeout(function() {
-        $("#sentences li").html(function() {
-            return trio[this.id].replace("$@$", blank);
-        });
-        $("#trio-id").html(trio.id);
-    }, flip ? 300 : 0);
-
-    var sentencesArr = [trio.sentence1, trio.sentence2, trio.sentence3];
-    var sentences = encodeURIComponent(sentencesArr.join("\r\n"));
+    /*var sentencesArr = [trio.sentence1, trio.sentence2, trio.sentence3];
+    var sentences = encodeURIComponent(sentencesArr.join("\r\n"));*/
     location.hash = "#" + trio.id;
 }
 
@@ -48,6 +63,17 @@ $(document).ready(function() {
     $.getJSON("/api/solve/"+hash, function(trio) {
         //Fill the page
         loadTrio(trio, false);
+
+        if (trio.solved) {
+            $("#check-button")
+                .removeClass("btn-danger")
+                .removeClass("btn-primary")
+                .addClass("btn-success")
+                .html("You have already solved this trio, get the next one →");
+            $("#idk-button").prop("disabled", true);
+            fillBlanks(trio.answer);
+            checkButtonState = 2;
+        }
     }).fail(function() {
         alert("We're having some trouble fetching a new Trio for you. :< Please try again.");
     });
