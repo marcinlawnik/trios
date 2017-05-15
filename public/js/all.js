@@ -27,14 +27,14 @@ function loadTrio(response, flip) {
         }, 600);
 
         setTimeout(function () {
-           setSentences(trio);
+            setSentences(trio);
         }, 300);
     } else {
         setSentences(trio);
     }
 
     /*var sentencesArr = [trio.sentence1, trio.sentence2, trio.sentence3];
-    var sentences = encodeURIComponent(sentencesArr.join("\r\n"));*/
+     var sentences = encodeURIComponent(sentencesArr.join("\r\n"));*/
     location.hash = "#" + trio.id;
 }
 
@@ -131,11 +131,11 @@ $(document).ready(function() {
                     .html("Try again");
                 checkButtonState = 1;
             }
-        });
 
-        if(ret.stats !== undefined) {
-            updateStats(ret.stats);
-        }
+            if(ret.stats !== undefined) {
+                updateStats(ret.stats);
+            }
+        });
 
     });
 
@@ -151,6 +151,10 @@ $(document).ready(function() {
             $.post("/api/solve/" + trio_id, {
                 answer: 'IDK@@',
                 _token: $("meta[name='csrf-token']").attr("content")
+            }).done(function(ret) {
+                if(ret.stats !== undefined) {
+                    updateStats(ret.stats);
+                }
             });
             //wyświetlamy poprawne odp
             //JSON request
@@ -185,13 +189,6 @@ $(document).ready(function() {
             $("#idk-button").text("I don't know");
             idkButtonState = 0;
         }
-
-        //update stats
-        //TODO FIXME make post request before updating stats
-
-        if(ret.stats !== undefined) {
-            updateStats(ret.stats);
-        }
     });
 
     $("#report-button").on("click", function (e) {
@@ -199,12 +196,12 @@ $(document).ready(function() {
             description = $("#report-description").val();
 
         $.post("{{ action('ReportController@create') }}", {
-                trio_id: trio_id,
-                description: description
-            }).done(function() {
-                var alert = $('<div class="alert alert-success" role="alert">Your report has been submitted. Thanks for your help!</div>');
-                $("#report-description").val('');
-                $(alert).hide().prependTo(".modal-body").fadeIn("slow").delay(3000).fadeOut("slow");
+            trio_id: trio_id,
+            description: description
+        }).done(function() {
+            var alert = $('<div class="alert alert-success" role="alert">Your report has been submitted. Thanks for your help!</div>');
+            $("#report-description").val('');
+            $(alert).hide().prependTo(".modal-body").fadeIn("slow").delay(3000).fadeOut("slow");
         });
     })
 });
