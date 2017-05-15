@@ -36,7 +36,7 @@
                             @foreach($user->triosAttempts as $attempt)
                                 <tr>
                                     <td>
-                                        <a href="{{-- action('SolveController@show', ['trio' => $attempt->trio_id]) --}}">
+                                        <a href="{{ url("/solve#{$attempt->trio_id}") }}">
                                             {{ $attempt->trio_id }}
                                         </a>
                                     </td>
