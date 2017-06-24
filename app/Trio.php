@@ -23,7 +23,8 @@ class Trio extends Model
         'explanation1',
         'explanation2',
         'explanation3',
-        'answer'
+        'answer',
+        'note'
     ];
 
     // Atributes hidden from JSON representation

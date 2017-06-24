@@ -47,6 +47,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'role:admin|mod'], function (
 
     Route::get('/stats', 'StatsController@index');
 
+    Route::post('/trios/{trio}/active', 'TriosController@active');
     Route::resource('/trios', 'TriosController');
 
     Route::get('reports', 'ReportController@index');
@@ -63,19 +64,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'role:admin|mod'], function (
 //New routes using API and AJAX
 Route::get('/solve', function () {
     return view('pages.solveAjax');
-});
-
-// API routes
-Route::group(['prefix' => 'api'], function () {
-
-    Route::group(['prefix' => 'solve'], function () {
-
-        Route::get('{trio}', 'ApiSolveController@getTrio');
-        Route::get('{trio}/answer', 'ApiSolveController@getTrioAnswer');
-        Route::get('/', 'ApiSolveController@getRandomTrio');
-        Route::post('{trio}', 'ApiSolveController@postCheck');
-
-    });
 });
 
 //Static routes
