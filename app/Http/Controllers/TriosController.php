@@ -9,7 +9,9 @@ namespace App\Http\Controllers;
 
 use App\Trio;
 use App\TrioChange;
+use App\User;
 use Illuminate\Http\Request;
+use \App\Notifications\TrioUpdated;
 use \Validator;
 
 class TriosController extends Controller
@@ -111,6 +113,11 @@ class TriosController extends Controller
 
         $trio->active = $active;
         $trio->save();
+
+        //Notify to Slack channel
+        $user  = User::whereId(1)->first();
+        $user->notify(new TrioUpdated($trio));
+
 
         return redirect("/admin/trios/{$trio->id}");
     }
