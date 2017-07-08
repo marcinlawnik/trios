@@ -16,6 +16,6 @@ class Slack extends Model
      */
     public function routeNotificationForSlack()
     {
-        return $this->slack_webhook_url;
+        return env('SLACK_WEBHOOK_URL', 'null');
     }
 }

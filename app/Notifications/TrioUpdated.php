@@ -11,8 +11,6 @@ class TrioUpdated extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    private $slack_webhook_url;
-
     /**
      * Create a new notification instance.
      *
@@ -20,7 +18,7 @@ class TrioUpdated extends Notification implements ShouldQueue
      */
     public function __construct()
     {
-        $this->slack_webhook_url = env('SLACK_WEBHOOK_URL', 'null');
+        //
     }
 
     /**
