@@ -42,10 +42,22 @@ class TrioUpdated extends Notification implements ShouldQueue
      */
     public function toSlack($notifiable)
     {
+        $trio = $this->trio;
         \Log::info('Sending slack message');
         return (new SlackMessage)
-            //->from('Trios', ':ghost:')
-            //->to('#' . env('SLACK_CHANNEL', 'trios'))
-            ->content('One of your invoices has been paid!' . $this->trio->id);
+            ->from('Trios')
+            ->image('https://trios.akai.org.pl/img/trios_logo_120x120_nobg.png')
+            ->to('#' . env('SLACK_CHANNEL', 'trios'))
+            ->content('A trio was modified!')
+            ->attachment(function ($attachment) use ($trio) {
+                $attachment->title('Changed trio ' . $trio->id, 'https://trios.akai.org.pl/solve#' . $trio->id)
+                    ->fields([
+                        'Sentence 1' => $trio->sentence1,
+                        'Sentence 2' => $trio->sentence2,
+                        'Sentence 3' => $trio->sentence3,
+                        'Answer' => $trio->answer,
+                        'Active' => $trio->active
+                    ]);
+            });
     }
 }
