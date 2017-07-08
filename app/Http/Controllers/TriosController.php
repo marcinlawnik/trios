@@ -104,8 +104,8 @@ class TriosController extends Controller
             $trio->$field = $request->input($field, $trio->$field);
         }
 
-        $active = $request->has('active') ? true : false;
-        if($active !== $trio->active) {
+        $active = $request->has('active');
+        if($active !== (bool)$trio->active) {
             $this->registerChange($request, $trio, 'active', $trio->active, $active);
         }
 
