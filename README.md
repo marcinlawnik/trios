@@ -75,6 +75,17 @@ http://fideloper.com/ubuntu-beanstalkd-and-laravel4#bottom
 https://laravel.com/docs/5.4/queues
 https://gist.github.com/Avidproducers/b53677fc58b50da7c2f16898da0f6fb5
 
+### Integracja ze Slackiem
+
+https://my.slack.com/services/new/incoming-webhook/
+
+Uzupełnij w .env:
+
+```
+SLACK_CHANNEL=
+SLACK_WEBHOOK_URL=
+```
+
 ### Ręczne przypisywanie uprawnień
 
 Aby dostać się do panelu administratora nie wystarczy się zalogować,
