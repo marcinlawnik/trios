@@ -11,6 +11,7 @@ class StatsController extends Controller
     public function index() {
         $stats = [
             'triosCount' => Trio::all()->count(),
+            'triosCountActive' => Trio::where('active', true)->count(),
             'totalAttempts' => UserTrioAttempt::totalAttempts(),
             'correctAnswers' => UserTrioAttempt::totalSolved(),
             'triosSolved' => UserTrioAttempt::triosSolved(),

@@ -10,6 +10,7 @@
                 <div class="panel-body">
                     <p>Amount of:</p>
                     <p>- trios: {{ $stats['triosCount'] }}</p>
+                    <p>- ACTIVE trios: {{ $stats['triosCountActive'] }}</p>
                     <p>- attempts: {{ $stats['totalAttempts'] }}</p>
                     <p>- trios solved: {{ $stats['triosSolved'] }}</p>
                     <p>- correct answers: {{ $stats['correctAnswers'] }} </p>
