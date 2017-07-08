@@ -40,6 +40,7 @@ class TrioUpdated extends Notification implements ShouldQueue
      */
     public function toSlack($notifiable)
     {
+        \Log::info('Sending slack message');
         return (new SlackMessage)
             ->from('Trios', ':ghost:')
             ->to('#' . env('SLACK_CHANNEL', 'trios'))
