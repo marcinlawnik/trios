@@ -5,7 +5,7 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Messages\SlackMessage;
 
 class TrioUpdated extends Notification implements ShouldQueue
 {
@@ -46,28 +46,5 @@ class TrioUpdated extends Notification implements ShouldQueue
             ->from('Trios', ':ghost:')
             ->to('#' . env('SLACK_CHANNEL', 'trios'))
             ->content('One of your invoices has been paid!');
-    }
-
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
-    }
-
-    /**
-     * Route notifications for the Slack channel.
-     *
-     * @return string
-     */
-    public function routeNotificationForSlack()
-    {
-        return $this->slack_webhook_url;
     }
 }
