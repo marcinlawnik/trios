@@ -13,7 +13,8 @@
         "laravel/tinker": "^1.0",
         "laravel/socialite": "^3.0",
         "doctrine/dbal": "^2.5",
-        "spatie/laravel-tail": "^1.4"
+        "spatie/laravel-tail": "^1.4",
+        "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
