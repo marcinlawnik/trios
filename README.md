@@ -69,6 +69,13 @@ $ sudo supervisorctl
 > start trios
 ```
 
+W `.env`
+
+```
+#change to beanstalkd
+QUEUE_DRIVER=sync
+```
+
 Cobbled together from:
 
 http://fideloper.com/ubuntu-beanstalkd-and-laravel4#bottom

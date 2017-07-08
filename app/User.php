@@ -63,4 +63,14 @@ class User extends Authenticatable
     {
         return $this->triosAttempts()->where('trio_id', $trio->id)->sum('solved') > 0 ? true : false;
     }
+
+    /**
+     * Route notifications for the Slack channel.
+     *
+     * @return string
+     */
+    public function routeNotificationForSlack()
+    {
+        return env('SLACK_WEBHOOK_URL', 'null');
+    }
 }
