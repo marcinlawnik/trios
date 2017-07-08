@@ -35,6 +35,40 @@ PHP
 MySQL
 ```
 
+Opcjonalnie:
+
+```
+beanstalkd
+supervisor
+```
+
+### Instalacja kolejki do wykonywania zadań w tle (beanstalkd+supervisor)
+
+Ubuntu 16.04 LTS:
+```
+$ sudo apt-get update
+$ sudo apt-get install -y beanstalkd supervisor
+$ sudo nano /etc/supervisor/conf.d/trios.conf
+```
+Dodaj do pliku, zmieniając ścieżki:
+```
+[program:trios]
+process_name=%(program_name)s_%(process_num)02d
+command=php /var/www/vhosts/trios/artisan queue:work beanstalkd --sleep=3 --tries=3
+autostart=true
+autorestart=true
+numprocs=4
+redirect_stderr=true
+stdout_logfile=/var/www/vhosts/trios/storage/logs/worker.log
+```
+
+```
+$ sudo supervisorctl
+> reread
+> add trios
+> start trios
+```
+
 ### Ręczne przypisywanie uprawnień
 
 Aby dostać się do panelu administratora nie wystarczy się zalogować,
