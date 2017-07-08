@@ -170,6 +170,7 @@ return [
          */
 
         Laravel\Tinker\TinkerServiceProvider::class,
+        Spatie\Tail\TailServiceProvider::class,
         //
 
         /*
