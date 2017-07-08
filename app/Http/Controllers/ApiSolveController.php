@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 class ApiSolveController extends Controller
 {
     function getTrio(Request $request, Trio $trio) {
+        if($trio->active == false) {
+            abort(404);
+        }
         $solved = false;
         $answer = null;
         if(Auth::check()) {
@@ -32,15 +35,18 @@ class ApiSolveController extends Controller
     function getRandomTrio(Request $request) {
         if(Auth::check()) {
             $solvedIds = $request->user()->solvedTriosIds()->toArray();
-            $trio = Trio::inRandomOrder()->whereNotIn('id', $solvedIds)->first();
+            $trio = Trio::where('active', true)->inRandomOrder()->whereNotIn('id', $solvedIds)->first();
         } else {
-            $trio = Trio::inRandomOrder()->first();
+            $trio = Trio::where('active', true)->inRandomOrder()->first();
         }
 
         return ['trio' => $trio, 'solved' => false];
     }
 
     function postCheck(Request $request, Trio $trio) {
+        if($trio->active == false) {
+            abort(404);
+        }
         //JSON response
         $response = [
             'answer' =>[

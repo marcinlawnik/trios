@@ -66,6 +66,18 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-md-4 control-label" for="answer">Note</label>
+                                <div class="col-md-4">
+                                    <textarea class="form-control input-md" id="note" name="note" placeholder="">{{ $trio->note }}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="active">Active</label>
+                                <div class="col-md-4">
+                                    <input class="input-md" id="active" name="active" type="checkbox" @if($trio->active) checked @endif>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
                                     <button class="btn btn-default" type="submit">Update</button>
                                 </div>

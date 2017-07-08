@@ -19,6 +19,8 @@
                         <li>answer: {{ $trio->answer }}</li>
                         <li>created at: {{ $trio->created_at }}</li>
                         <li>updated at: {{ $trio->updated_at }}</li>
+                        <li>note: <p>{{ $trio->note }}</p></li>
+                        <li>active?: {{ $trio->active }}</li>
                         <li><a href='{{ action('TriosController@edit', $trio->id) }}'>Edit trio</a></li>
                     </ul>
                 </div>

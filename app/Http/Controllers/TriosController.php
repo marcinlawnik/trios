@@ -100,10 +100,16 @@ class TriosController extends Controller
     public function update(Request $request, Trio $trio)
     {
         foreach ($trio->getFillable() as $field) {
-            $this->registerChange($request, $trio, $field);
+            $this->registerChangeIfNeeded($request, $trio, $field);
             $trio->$field = $request->input($field, $trio->$field);
         }
 
+        $active = $request->has('active') ? true : false;
+        if($active !== $trio->active) {
+            $this->registerChange($request, $trio, 'active', $trio->active, $active);
+        }
+
+        $trio->active = $active;
         $trio->save();
 
         return redirect("/admin/trios/{$trio->id}");
@@ -116,7 +122,7 @@ class TriosController extends Controller
      * @param $trio
      * @param $field
      */
-    private function registerChange(Request $request, Trio $trio, $field)
+    private function registerChangeIfNeeded(Request $request, Trio $trio, $field)
     {
         if($trio[$field] !== $request->input($field)) {
             $trioChange = new TrioChange;
@@ -132,6 +138,18 @@ class TriosController extends Controller
         }
     }
 
+    private function registerChange(Request $request, Trio $trio, $field, $before, $after) {
+        $trioChange = new TrioChange;
+
+        $trioChange->trio_id = $trio->id;
+        $trioChange->user_id = $request->user() ? $request->user()->id : 0;
+        $trioChange->field_name = $field;
+        $trioChange->before = $before;
+        $trioChange->after = $after;
+
+        $trioChange->save();
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -145,4 +163,13 @@ class TriosController extends Controller
         return redirect()->action('TriosController@index');
     }
 
+    public function active(Request $request, Trio $trio)
+    {
+        $this->registerChange($request, $trio, 'active', $trio->active, !$trio->active);
+
+        $trio->active = !$trio->active;
+        $trio->save();
+
+        return ['state' => $trio->active];
+    }
 }

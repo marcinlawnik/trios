@@ -17,22 +17,23 @@
                     <th>View</th>
                     <th>Edit</th>
                     <th>Delete</th>
+                    <th>Active?</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($trios as $trio)
                     <tr>
-                        <th>{{ $trio->id }}</th>
-                        <th>{{ $trio->sentence1 }}</th>
-                        <th>{{ $trio->sentence2 }}</th>
-                        <th>{{ $trio->sentence3 }}</th>
-                        <th>{{ str_limit($trio->explanation1, $limit = 50, $end = '...') }}</th>
-                        <th>{{ str_limit($trio->explanation2, $limit = 50, $end = '...') }}</th>
-                        <th>{{ str_limit($trio->explanation3, $limit = 50, $end = '...') }}</th>
-                        <th>{{ $trio->answer }}</th>
-                        <th><a href='{{ action('TriosController@show', $trio->id) }}'><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-list-alt"></span></button></a></th>
-                        <th><a href='{{ action('TriosController@edit', $trio->id) }}'><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></th>
-                        <th>
+                        <td>{{ $trio->id }}</td>
+                        <td>{{ $trio->sentence1 }}</td>
+                        <td>{{ $trio->sentence2 }}</td>
+                        <td>{{ $trio->sentence3 }}</td>
+                        <td>{{ str_limit($trio->explanation1, $limit = 50, $end = '...') }}</td>
+                        <td>{{ str_limit($trio->explanation2, $limit = 50, $end = '...') }}</td>
+                        <td>{{ str_limit($trio->explanation3, $limit = 50, $end = '...') }}</td>
+                        <td>{{ $trio->answer }}</td>
+                        <td><a href='{{ action('TriosController@show', $trio->id) }}'><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-list-alt"></span></button></a></td>
+                        <td><a href='{{ action('TriosController@edit', $trio->id) }}'><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                        <td>
                             <!-- Delete Button -->
                             {{-- To musi być formularz, albo dołączamy więcej js. --}}
                             {{-- See: https://laravel.com/docs/5.2/quickstart-intermediate#adding-the-delete-button --}}
@@ -44,7 +45,16 @@
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </form>
-                        </th>
+                        </td>
+                        <td>
+                            <a href="{{ action('TriosController@active', $trio->id) }}" class="active-trio">
+                            @if($trio->active)
+                                <span class="glyphicon glyphicon-ok-circle"></span>
+                            @else
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                            @endif
+                            </a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -55,3 +65,21 @@
         </div>
     </div>
 @endsection
+@push('afterjs')
+<script>
+    $(document).ready(function () {
+        $("a.active-trio").click(function (e) {
+            e.preventDefault();
+            $.post(e.currentTarget.href, {_token: $("meta[name='csrf-token']").attr("content")}).done(function (response) {
+                if(response.state) {
+                    e.currentTarget.children[0].classList.remove('glyphicon-remove-circle');
+                    e.currentTarget.children[0].classList.add('glyphicon-ok-circle');
+                } else {
+                    e.currentTarget.children[0].classList.add('glyphicon-remove-circle');
+                    e.currentTarget.children[0].classList.remove('glyphicon-ok-circle');
+                }
+            });
+        });
+    });
+</script>
+@endpush
