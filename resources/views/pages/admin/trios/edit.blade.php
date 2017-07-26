@@ -84,6 +84,13 @@
                             </div>
                         </fieldset>
                     </form>
+
+                    @if($trio->previousTrio() !== null)
+                        <a class="btn btn-default" href="{{ action('TriosController@edit', $trio->previousTrio()->id) }}">Previous</a>
+                    @endif
+                    @if($trio->nextTrio() !== null)
+                        <a class="btn btn-default" href="{{ action('TriosController@edit', $trio->nextTrio()->id) }}">Next</a>
+                    @endif
                 </div>
             </div>
         </div>

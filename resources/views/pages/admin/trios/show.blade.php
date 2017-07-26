@@ -23,6 +23,13 @@
                         <li>active?: {{ $trio->active }}</li>
                         <li><a href='{{ action('TriosController@edit', $trio->id) }}'>Edit trio</a></li>
                     </ul>
+
+                    @if($trio->previousTrio() !== null)
+                        <a class="btn btn-default" href="{{ action('TriosController@show', $trio->previousTrio()->id) }}">Previous</a>
+                    @endif
+                    @if($trio->nextTrio() !== null)
+                        <a class="btn btn-default" href="{{ action('TriosController@show', $trio->nextTrio()->id) }}">Next</a>
+                    @endif
                 </div>
             </div>
 
