@@ -54,4 +54,14 @@ class Trio extends Model
     {
         return $this->hasMany('App\Report');
     }
+
+    public function previousTrio()
+    {
+        return static::where('id', '<', $this->id)->orderBy('id', 'desc')->first();
+    }
+
+    public function nextTrio()
+    {
+        return static::where('id', '>', $this->id)->orderBy('id', 'asc')->first();
+    }
 }
