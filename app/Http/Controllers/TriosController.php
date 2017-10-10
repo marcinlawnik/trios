@@ -21,10 +21,20 @@ class TriosController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $trios = Trio::paginate(15);
-        return view('pages.admin.trios.index')->withTrios($trios);
+        $paginate = 15;
+        $filter = $request->query('show');
+
+        if($filter == 'active') {
+            $trios = Trio::where('active', 1)->paginate($paginate);
+        } else if($filter == 'inactive') {
+            $trios = Trio::where('active', 0)->paginate($paginate);
+        } else {
+            $trios = Trio::paginate($paginate);
+        }
+
+        return view('pages.admin.trios.index', compact(['trios', 'filter']));
     }
 
     /**
