@@ -3,6 +3,11 @@
     <div class="row">
         <div class="col-md-12">
             <a href="{{ action('TriosController@create') }}" class="btn btn-primary">Add Trio</a>
+            <p class="pull-right">
+                Filter: <a class="btn btn-default @if(Request::query('show') == 'active') btn-primary @endif" href="{{ action('TriosController@index', ['show' => 'active']) }}" role="button">Active</a>
+                <a class="btn btn-default @if(Request::query('show') == 'inactive') btn-primary @endif" href="{{ action('TriosController@index', ['show' => 'inactive']) }}" role="button">Inactive</a>
+                <a class="btn btn-default  @if(!Request::has('show')) btn-primary @endif" href="{{ action('TriosController@index') }}" role="button">All</a>
+            </p>
             <table class="table table-striped table-responsive">
                 <thead>
                 <tr>
@@ -60,7 +65,11 @@
                 </tbody>
             </table>
             <div class="text-center">
-                {{ $trios->links() }}
+                @if(isset($filter))
+                    {{ $trios->appends(['show' => $filter])->links() }}
+                @else
+                    {{ $trios->links() }}
+                @endif
             </div>
         </div>
     </div>
