@@ -11,10 +11,10 @@
         <h1>Authors</h1>
         <ul>
             <li>Marcin Ławniczak - rozpoczęcie projektu - <a href="https://github.com/marcinlawnik">marcinlawnik</a></li>
-            <li>Mikołaj Rozwadowski - frontend & backend - <a href="https://github.com/marcinlawnik">marcinlawnik</a></li>
-            <li>Denis Knop - frontend & backend - <a href="https://github.com/knopers666">knopers666</a></li>
+            <li>Mikołaj Rozwadowski - frontend &amp; backend - <a href="https://github.com/hejmsdz">hejmsdz</a></li>
+            <li>Denis Knop - frontend &amp; backend - <a href="https://github.com/knopers666">knopers666</a></li>
             <li>Michał Dolata - backend - <a href="https://github.com/MichalDolata">MichalDolata</a></li>
-            <li>Mateusz Stempniewicz - frontend & backend - <a href="https://github.com/Mateusz-Stempniewicz">Mateusz-Stempniewicz</a></li>
+            <li>Mateusz Stempniewicz - frontend &amp; backend - <a href="https://github.com/Mateusz-Stempniewicz">Mateusz-Stempniewicz</a></li>
             <li>Zofia Dobrowolska - backend, design and logo - <a href="https://github.com/zofiadob">zofiadob</a></li>
             See also the <a href="https://github.com/akai-org/trios/graphs/contributors">list of contributors</a> who participated in this project.
         </ul>
