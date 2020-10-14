@@ -95,6 +95,7 @@ class ImportTrios extends Command
                 $newTrio->sentence3 = trim($trios[$i * 3 + 2][4]);
                 $newTrio->explanation1 = $newTrio->explanation2 = $newTrio->explanation3 = $this->currentAnswer;
                 $newTrio->answer = trim(strtolower($this->answers[$this->currentAnswer]));
+                $newTrio->active = 1;
                 $newTrio->save();
 
                 $this->currentAnswer++;
